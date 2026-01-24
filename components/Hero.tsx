@@ -23,10 +23,10 @@ const Hero = () => {
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-center lg:text-right space-y-8"
+                    className="text-center space-y-8"
                 >
                     {/* Badge */}
                     <motion.span
@@ -58,7 +58,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                        className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
                     >
                         متخصصون في طباعة العلب، الأكياس، والأكواب بأعلى معايير الجودة. نقدم حلول تغليف مبتكرة تناسب مشروعك التجاري وتبرز هويتك في الكويت والخليج.
                     </motion.p>
@@ -68,7 +68,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2"
+                        className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
                     >
                         <a
                             href="https://wa.me/96541441200"
@@ -98,7 +98,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8"
+                        className="pt-6 flex flex-wrap items-center justify-center gap-6 md:gap-8"
                     >
                         {stats.map((stat, index) => (
                             <motion.div
@@ -106,7 +106,7 @@ const Hero = () => {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                                className="flex flex-col items-center lg:items-start group"
+                                className="flex flex-col items-center group"
                             >
                                 <div className="flex items-center gap-2 mb-1">
                                     <stat.icon size={18} className="text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
