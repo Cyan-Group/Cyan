@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -49,8 +50,23 @@ const Header = () => {
                     className="text-2xl font-black text-primary flex items-center gap-2"
                     onClick={(e) => handleNavClick(e, '#hero')}
                 >
-                    <span className="text-accent text-3xl">Cyan</span>
-                    <span>Printing</span>
+                    <Image
+                        src="/Logo.svg"
+                        alt="Cyan Printing Logo"
+                        width={120}
+                        height={40}
+                        className="h-10 w-auto object-contain"
+                        priority
+                        onError={(e) => {
+                            // Fallback to text if logo doesn't exist
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent && !parent.querySelector('.logo-text-fallback')) {
+                                parent.innerHTML += '<span class="logo-text-fallback text-accent text-3xl">Cyan</span><span class="logo-text-fallback">Printing</span>';
+                            }
+                        }}
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}

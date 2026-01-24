@@ -1,50 +1,42 @@
 "use client";
 
-import { useRef, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Stage, Float } from "@react-three/drei";
-import * as THREE from "three";
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-// Placeholder component for the 3D model
-const PlaceholderModel = (props: any) => {
-    const meshRef = useRef<THREE.Mesh>(null);
-
-    useFrame(() => {
-        if (!meshRef.current) return;
-        // Slow rotation
-        meshRef.current.rotation.y += 0.005;
-    });
-
-    return (
-        <mesh {...props} ref={meshRef}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshStandardMaterial color="#1b9cd7" roughness={0.3} metalness={0.1} />
-        </mesh>
-    );
-};
-
+// Option 1: Simple image logo (recommended for 2D logos)
 const ProductViewer = () => {
+    const [imageError, setImageError] = useState(false);
+
     return (
-        <div className="w-full h-[400px] md:h-[500px] relative cursor-move">
-            <Canvas shadows dpr={[1, 2]} camera={{ fov: 50, position: [0, 0, 8] }}>
-                <Suspense fallback={null}>
-                    <Stage environment="city" intensity={0.6}>
-                        <Float
-                            speed={2}
-                            rotationIntensity={0.5}
-                            floatIntensity={0.5}
-                        >
-                            <PlaceholderModel />
-                        </Float>
-                    </Stage>
-                    <OrbitControls makeDefault autoRotate autoRotateSpeed={0.5} />
-                </Suspense>
-            </Canvas>
-            <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                <span className="text-sm text-gray-400 bg-white/80 px-3 py-1 rounded-full shadow-sm">
-                    اسحب للتدوير
-                </span>
-            </div>
+        <div className="w-full h-[400px] md:h-[500px] relative flex items-center justify-center">
+            {!imageError ? (
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full h-full"
+                >
+                    <Image
+                        src="/Logo.svg"
+                        alt="Printing Press"
+                        fill
+                        className="object-contain"
+                        priority
+                        onError={() => setImageError(true)}
+                    />
+                </motion.div>
+            ) : (
+                // Fallback placeholder if image doesn't exist
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-blue-100/20 rounded-2xl">
+                    <div className="text-center space-y-4">
+                        <div className="w-32 h-32 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                            <span className="text-6xl">🖨️</span>
+                        </div>
+                        <p className="text-sm text-gray-500">Place your printing press logo at:<br /><code className="text-xs bg-white/50 px-2 py-1 rounded">/public/Logo.svg</code></p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

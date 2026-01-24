@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 
-const cairo = Cairo({
-  variable: "--font-cairo",
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-ibm-plex-sans-arabic",
   subsets: ["arabic", "latin"],
-  weight: ["300", "400", "600", "700", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${cairo.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
+        className={`${ibmPlexSansArabic.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
         suppressHydrationWarning
       >
         <Header />
