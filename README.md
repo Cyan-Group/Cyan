@@ -80,18 +80,6 @@ npm start
 - **Footer**: Contact information and social links
 - **WhatsAppButton**: Floating contact button with popup
 
-## Configuration
-
-### Environment Variables
-
-Create a `.env.local` file in the root directory with the following variables:
-
-```env
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-68LZ4LGNW1
-```
-
-The `.env.local` file is already included in `.gitignore` and will not be committed to version control.
-
 ### Google Analytics
 
 The project includes Google Analytics 4 integration. The Measurement ID is configured via the `NEXT_PUBLIC_GA_MEASUREMENT_ID` environment variable in `.env.local`.
