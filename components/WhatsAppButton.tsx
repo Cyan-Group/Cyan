@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function WhatsAppButton() {
     const { t, language } = useLanguage();
@@ -117,6 +118,9 @@ export default function WhatsAppButton() {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
+                onClick={() => {
+                    sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                }}
             >
                 <div className="absolute inset-0 rounded-full border border-[#25d366] opacity-50 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
                 <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" className="relative z-10">

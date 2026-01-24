@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   variable: "--font-ibm-plex-sans-arabic",
@@ -111,6 +112,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
         </LanguageProvider>
+        <GoogleAnalytics gaId="G-68LZ4LGNW1" />
       </body>
     </html>
   );

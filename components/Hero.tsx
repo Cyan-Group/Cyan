@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, CheckCircle2, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Hero = () => {
     const { t, language } = useLanguage();
@@ -77,6 +78,9 @@ const Hero = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative bg-gradient-to-r from-primary to-sky-600 hover:from-sky-600 hover:to-primary text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
+                            onClick={() => {
+                                sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                            }}
                         >
                             <span className="relative z-10 flex items-center justify-center gap-2">
                                 {t.hero.ctaWhatsApp}

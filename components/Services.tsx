@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Package, ShoppingBag, Coffee, Layers, Briefcase } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Services = () => {
     const { t } = useLanguage();
@@ -91,6 +92,9 @@ const Services = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors relative z-10 shadow-lg"
+                            onClick={() => {
+                                sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                            }}
                         >
                             {t.services.cta.button}
                         </a>
