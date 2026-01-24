@@ -25,11 +25,11 @@ const Footer = () => {
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-white">معلومات التواصل</h3>
                         <div className="flex flex-col gap-3 items-center md:items-start text-gray-300">
-                            <a href="https://wa.me/96541441200" className="flex items-center gap-3 hover:text-primary transition-colors dir-ltr">
+                            <a href="https://wa.me/96541441200" aria-label="اتصل بنا" className="flex items-center gap-3 hover:text-primary transition-colors dir-ltr">
                                 <span className="font-mono text-lg">+965 41441200</span>
                                 <Phone size={20} />
                             </a>
-                            <a href="mailto:info@cyanprintkw.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+                            <a href="mailto:info@cyanprintkw.com" aria-label="راسلنا عبر البريد الإلكتروني" className="flex items-center gap-3 hover:text-primary transition-colors">
                                 <Mail size={20} />
                                 <span>info@cyanprintkw.com</span>
                             </a>
@@ -44,6 +44,7 @@ const Footer = () => {
                                 href="https://instagram.com/cyan.print"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="تابعنا على انستقرام"
                                 className="bg-gray-800 p-3 rounded-full hover:bg-primary hover:text-white transition-all transform hover:scale-110"
                             >
                                 <Instagram size={24} />
@@ -52,6 +53,7 @@ const Footer = () => {
                                 href="https://tiktok.com/@cyan.print"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="تابعنا على تيك توك"
                                 className="bg-gray-800 p-3 rounded-full hover:bg-primary hover:text-white transition-all transform hover:scale-110"
                             >
                                 <TikTokIcon size={24} />

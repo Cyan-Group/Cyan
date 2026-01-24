@@ -49,7 +49,6 @@ const Partners = () => {
                                             // Fallback if image not found (optional visual handling)
                                             const target = e.target as HTMLImageElement;
                                             target.style.display = 'none';
-                                            target.parentElement?.insertAdjacentHTML('beforeend', `<div class="w-full h-full flex items-center justify-center bg-gray-50 border border-gray-100 rounded text-xs text-gray-300 font-bold">${partner.name}</div>`);
                                         }}
                                     />
                                 </div>

@@ -9,7 +9,7 @@ import * as THREE from "three";
 const PlaceholderModel = (props: any) => {
     const meshRef = useRef<THREE.Mesh>(null);
 
-    useFrame((state) => {
+    useFrame(() => {
         if (!meshRef.current) return;
         // Slow rotation
         meshRef.current.rotation.y += 0.005;

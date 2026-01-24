@@ -2,18 +2,27 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 
+import Header from "@/components/Header";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Footer from "@/components/Footer";
+
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "600", "700", "900"],
 });
 
-import Header from "@/components/Header";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import Footer from "@/components/Footer"; // Import Footer here or page? Page is better for content flow but layout handles global structure. 
-// User request: "Links... scroll to footer". Footer fits in page usually, but for a landing page, it's always at bottom.
-// Let's put Header and WhatsAppButton in layout. Footer is usually part of the content flow, sticking to bottom.
-// I'll put Footer in page.tsx for now, or layout. Let's put it in layout to be consistent global.
+export const metadata: Metadata = {
+  title: "مطبعة سيان | Cyan Printing - طباعة وتغليف في الكويت",
+  description: "متخصصون في طباعة العلب، الأكياس، والأكواب بأعلى معايير الجودة. نقدم حلول تغليف مبتكرة تناسب مشروعك التجاري وتبرز هويتك في الكويت والخليج.",
+  keywords: ["مطبعة", "طباعة", "تغليف", "علب", "أكياس", "أكواب", "الكويت", "Cyan Printing"],
+  openGraph: {
+    title: "مطبعة سيان | Cyan Printing",
+    description: "شريككم الموثوق في عالم الطباعة والتغليف",
+    locale: "ar_KW",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,

@@ -81,7 +81,7 @@ const Services = () => {
                         transition={{ duration: 0.4, delay: services.length * 0.1 }}
                         className="bg-primary p-8 rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden"
                     >
-                        <div className="absolute inset-0 bg-accent/10 pattern-grid-lg opacity-20"></div>
+                        <div className="absolute inset-0 bg-accent/10 opacity-20"></div>
                         <h3 className="text-2xl font-bold mb-4 relative z-10">لديك طلب خاص؟</h3>
                         <p className="mb-6 relative z-10">يمكننا تنفيذ أي فكرة تخطر ببالك. تواصل معنا لمناقشة التفاصيل.</p>
                         <a
