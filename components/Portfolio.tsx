@@ -7,22 +7,21 @@ import Image from "next/image";
 // Portfolio item type for images
 type PortfolioItem = {
     id: number;
-    name: string;
     image: string;
 };
 
 // Portfolio items - Images from public/portfolio/ directory
 const portfolioItems: PortfolioItem[] = [
-    { id: 1, name: "عمل 1", image: "/portfolio/item (1).png" },
-    { id: 2, name: "عمل 2", image: "/portfolio/item (2).png" },
-    { id: 3, name: "عمل 3", image: "/portfolio/item (3).png" },
-    { id: 4, name: "عمل 4", image: "/portfolio/item (4).png" },
-    { id: 5, name: "عمل 5", image: "/portfolio/item (5).png" },
-    { id: 6, name: "عمل 6", image: "/portfolio/item (6).png" },
-    { id: 7, name: "عمل 7", image: "/portfolio/item (7).png" },
-    { id: 8, name: "عمل 8", image: "/portfolio/item (8).png" },
-    { id: 9, name: "عمل 9", image: "/portfolio/item (9).png" },
-    { id: 10, name: "عمل 10", image: "/portfolio/item (10).png" },
+    { id: 1, image: "/portfolio/item (1).png" },
+    { id: 2, image: "/portfolio/item (2).png" },
+    { id: 3, image: "/portfolio/item (3).png" },
+    { id: 4, image: "/portfolio/item (4).png" },
+    { id: 5, image: "/portfolio/item (5).png" },
+    { id: 6, image: "/portfolio/item (6).png" },
+    { id: 7, image: "/portfolio/item (7).png" },
+    { id: 8, image: "/portfolio/item (8).png" },
+    { id: 9, image: "/portfolio/item (9).png" },
+    { id: 10, image: "/portfolio/item (10).png" },
 ];
 
 const Portfolio = () => {
@@ -59,7 +58,7 @@ const Portfolio = () => {
                             >
                                 <Image
                                     src={item.image}
-                                    alt={item.name}
+                                    alt={`Portfolio item ${item.id}`}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
