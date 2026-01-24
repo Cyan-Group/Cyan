@@ -109,6 +109,8 @@ export const translations = {
         // WhatsApp
         whatsapp: {
             contactUs: "تواصل معنا عبر واتساب",
+            popupMessage: "هل لديك استفسار؟ تواصل معنا الآن!",
+            popupSubtext: "نحن هنا لمساعدتك",
         },
     },
     en: {
@@ -219,6 +221,8 @@ export const translations = {
         // WhatsApp
         whatsapp: {
             contactUs: "Contact us via WhatsApp",
+            popupMessage: "Have a question? Contact us now!",
+            popupSubtext: "We're here to help",
         },
     },
 } as const;
