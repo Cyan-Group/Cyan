@@ -61,7 +61,9 @@ const Portfolio = () => {
                             >
                                 <Image
                                     src={item.image}
-                                    alt={`Portfolio item ${item.id}`}
+                                    alt={language === 'ar' 
+                                        ? `عمل طباعة من أعمال مطبعة سيان - منتج ${item.id}` 
+                                        : `Printing work by Cyan Printing - Product ${item.id}`}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"

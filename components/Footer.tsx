@@ -44,7 +44,7 @@ const Footer = () => {
                         <div className="relative w-40 h-12 mb-4 mx-auto md:mx-0">
                             <Image
                                 src="/Logo.svg"
-                                alt="Cyan Printing Logo"
+                                alt="Cyan Printing Logo | مطبعة سيان - شعار الشركة"
                                 fill
                                 className="object-contain brightness-0 invert"
                             />
