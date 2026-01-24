@@ -2,44 +2,36 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import ModelViewer from "./ModelViewer";
+import Image from "next/image";
 
-// Portfolio item type
+// Portfolio item type for images
 type PortfolioItem = {
     id: number;
     name: string;
-    model: string;
+    image: string;
 };
 
-// Portfolio items organized by category
-// Place your GLB files in the public/models/ directory
-// Only include files that actually exist in public/models/
-const portfolioCategories: {
-    boxes: PortfolioItem[];
-    bags: PortfolioItem[];
-    other: PortfolioItem[];
-} = {
-    boxes: [
-        { id: 1, name: "علب", model: "/models/box.glb" },
-        // Add more box models here when you add them to public/models/
-    ],
-    bags: [
-        { id: 2, name: "أكياس", model: "/models/bag.glb" },
-        // Add more bag models here when you add them to public/models/
-    ],
-    other: [
-        // Add other product models here when you add them to public/models/
-        // Example: { id: 3, name: "أكواب", model: "/models/cup.glb" },
-    ],
-};
+// Portfolio items - Images from public/portfolio/ directory
+const portfolioItems: PortfolioItem[] = [
+    { id: 1, name: "عمل 1", image: "/portfolio/item (1).png" },
+    { id: 2, name: "عمل 2", image: "/portfolio/item (2).png" },
+    { id: 3, name: "عمل 3", image: "/portfolio/item (3).png" },
+    { id: 4, name: "عمل 4", image: "/portfolio/item (4).png" },
+    { id: 5, name: "عمل 5", image: "/portfolio/item (5).png" },
+    { id: 6, name: "عمل 6", image: "/portfolio/item (6).png" },
+    { id: 7, name: "عمل 7", image: "/portfolio/item (7).png" },
+    { id: 8, name: "عمل 8", image: "/portfolio/item (8).png" },
+    { id: 9, name: "عمل 9", image: "/portfolio/item (9).png" },
+    { id: 10, name: "عمل 10", image: "/portfolio/item (10).png" },
+];
 
 const Portfolio = () => {
     return (
         <section id="portfolio" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div className="text-center md:text-right">
-                        <h2 className="text-3xl md:text-5xl font-black text-accent mb-4">أحدث أعمالنا</h2>
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6">
+                    <div className="text-center md:text-right w-full md:w-auto">
+                        <h2 className="text-3xl md:text-5xl font-black text-accent mb-4">بعض أعمالنا</h2>
                         <p className="text-gray-600 text-lg">نفتخر بتقديم أفضل حلول الطباعة لشركائنا</p>
                     </div>
                     <a
@@ -53,117 +45,35 @@ const Portfolio = () => {
                     </a>
                 </div>
 
-                {/* Boxes Category - Only show if there are items */}
-                {portfolioCategories.boxes.length > 0 && (
-                    <div className="mb-16">
-                        <motion.h3
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-2xl md:text-3xl font-black text-accent mb-6 text-center md:text-right"
-                        >
-                            علب
-                        </motion.h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                            {portfolioCategories.boxes.map((item, index) => (
-                                <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    className="relative aspect-square rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all cursor-pointer bg-white"
-                                >
-                                    <div className="w-full h-full relative">
-                                        <ModelViewer
-                                            modelPath={item.model}
-                                            className="w-full h-full"
-                                            autoRotate={true}
-                                            enableControls={true}
-                                        />
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
-                                        <span className="text-white font-bold text-sm md:text-base">{item.name}</span>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                {/* Portfolio Images Grid */}
+                {portfolioItems.length > 0 ? (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        {portfolioItems.map((item, index) => (
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
+                                className="relative aspect-square rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all cursor-pointer bg-white"
+                            >
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
+                                    <span className="text-white font-bold text-sm md:text-base">{item.name}</span>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
-                )}
-
-                {/* Bags Category - Only show if there are items */}
-                {portfolioCategories.bags.length > 0 && (
-                    <div className="mb-16">
-                        <motion.h3
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-2xl md:text-3xl font-black text-accent mb-6 text-center md:text-right"
-                        >
-                            أكياس
-                        </motion.h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                            {portfolioCategories.bags.map((item, index) => (
-                                <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    className="relative aspect-square rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all cursor-pointer bg-white"
-                                >
-                                    <div className="w-full h-full relative">
-                                        <ModelViewer
-                                            modelPath={item.model}
-                                            className="w-full h-full"
-                                            autoRotate={true}
-                                            enableControls={true}
-                                        />
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
-                                        <span className="text-white font-bold text-sm md:text-base">{item.name}</span>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Other Products Category - Only show if there are items */}
-                {portfolioCategories.other.length > 0 && (
-                    <div className="mb-16">
-                        <motion.h3
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-2xl md:text-3xl font-black text-accent mb-6 text-center md:text-right"
-                        >
-                            منتجات أخرى
-                        </motion.h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                            {portfolioCategories.other.map((item, index) => (
-                                <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    className="relative aspect-square rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all cursor-pointer bg-white"
-                                >
-                                    <div className="w-full h-full relative">
-                                        <ModelViewer
-                                            modelPath={item.model}
-                                            className="w-full h-full"
-                                            autoRotate={true}
-                                            enableControls={true}
-                                        />
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
-                                        <span className="text-white font-bold text-sm md:text-base">{item.name}</span>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                ) : (
+                    <div className="text-center py-16 text-gray-400">
+                        <p className="text-lg">لا توجد صور في المعرض حالياً</p>
+                        <p className="text-sm mt-2">أضف الصور إلى مصفوفة portfolioItems في ملف Portfolio.tsx</p>
                     </div>
                 )}
 
