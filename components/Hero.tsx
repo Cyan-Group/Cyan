@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Sparkles, CheckCircle2, Zap } from "lucide-react";
 
 const Hero = () => {
     const stats = [
         { value: "+500", label: "عميل سعيد", icon: CheckCircle2 },
         { value: "100%", label: "جودة مضمونة", icon: Sparkles },
-        { value: "24/7", label: "خدمة متاحة", icon: CheckCircle2 },
+        { value: "تسليم سريع", label: "في الوقت المحدد", icon: Zap },
     ];
 
     return (
@@ -98,7 +98,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="pt-6 flex flex-wrap items-center justify-center gap-6 md:gap-8"
+                        className="pt-6 pb-12 md:pb-16 flex flex-wrap items-center justify-center gap-6 md:gap-8"
                     >
                         {stats.map((stat, index) => (
                             <motion.div
@@ -106,15 +106,15 @@ const Hero = () => {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                                className="flex flex-col items-center group"
+                                className="flex flex-col items-center group px-2"
                             >
-                                <div className="flex items-center gap-2 mb-1">
-                                    <stat.icon size={18} className="text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
-                                    <span className="font-black text-3xl md:text-4xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                                <div className="flex items-center gap-2 mb-3 md:mb-4">
+                                    <stat.icon size={18} className="text-primary opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                                    <span className="font-black text-2xl sm:text-3xl md:text-4xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight">
                                         {stat.value}
                                     </span>
                                 </div>
-                                <span className="text-sm text-gray-500 font-medium">{stat.label}</span>
+                                <span className="text-sm text-gray-500 font-medium text-center">{stat.label}</span>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -126,19 +126,19 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
+                className="absolute bottom-12 md:bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
             >
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="flex flex-col items-center gap-2 text-gray-400"
+                    className="flex flex-col items-center gap-3 text-gray-400"
                 >
                     <span className="text-xs font-medium">انتقل للأسفل</span>
                     <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
                         <motion.div
                             animate={{ y: [0, 12, 0] }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="w-1.5 h-1.5 bg-primary rounded-full mt-2"
+                            className="w-1.5 h-1.5 bg-primary rounded-full mt-3"
                         />
                     </div>
                 </motion.div>
