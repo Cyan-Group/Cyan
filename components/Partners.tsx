@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Define the partners data here.
 const PARTNERS = Array.from({ length: 30 }, (_, i) => ({
@@ -9,11 +10,13 @@ const PARTNERS = Array.from({ length: 30 }, (_, i) => ({
 }));
 
 const Partners = () => {
+    const { t } = useLanguage();
+    
     return (
         <section id="partners" className="py-16 bg-white overflow-hidden border-b border-gray-100">
             <div className="container mx-auto px-4 mb-10 text-center">
                 <h2 className="text-2xl font-bold text-gray-400">
-                    أكثر من <span className="text-accent">500+</span> عميل يثقون بنا في الخليج
+                    {t.partners.title} <span className="text-accent">{t.partners.titleHighlight}</span> {t.partners.titleEnd}
                 </h2>
             </div>
 

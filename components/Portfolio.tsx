@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Portfolio item type for images
 type PortfolioItem = {
@@ -25,13 +26,15 @@ const portfolioItems: PortfolioItem[] = [
 ];
 
 const Portfolio = () => {
+    const { t, language } = useLanguage();
+    
     return (
         <section id="portfolio" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6">
                     <div className="text-center md:text-right w-full md:w-auto">
-                        <h2 className="text-3xl md:text-5xl font-black text-accent mb-4">بعض أعمالنا</h2>
-                        <p className="text-gray-600 text-lg">نفتخر بتقديم أفضل حلول الطباعة لشركائنا</p>
+                        <h2 className="text-3xl md:text-5xl font-black text-accent mb-4">{t.portfolio.title}</h2>
+                        <p className="text-gray-600 text-lg">{t.portfolio.description}</p>
                     </div>
                     <a
                         href="https://instagram.com/cyan.print"
@@ -39,8 +42,8 @@ const Portfolio = () => {
                         rel="noopener noreferrer"
                         className="hidden md:flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
                     >
-                        <span>شاهد المزيد على انستقرام</span>
-                        <ArrowLeft size={20} />
+                        <span>{t.portfolio.viewMore}</span>
+                        <ArrowLeft size={20} className={language === 'en' ? 'rotate-180' : ''} />
                     </a>
                 </div>
 
@@ -68,8 +71,8 @@ const Portfolio = () => {
                     </div>
                 ) : (
                     <div className="text-center py-16 text-gray-400">
-                        <p className="text-lg">لا توجد صور في المعرض حالياً</p>
-                        <p className="text-sm mt-2">أضف الصور إلى مصفوفة portfolioItems في ملف Portfolio.tsx</p>
+                        <p className="text-lg">{language === 'ar' ? 'لا توجد صور في المعرض حالياً' : 'No images in gallery currently'}</p>
+                        <p className="text-sm mt-2">{language === 'ar' ? 'أضف الصور إلى مصفوفة portfolioItems في ملف Portfolio.tsx' : 'Add images to portfolioItems array in Portfolio.tsx'}</p>
                     </div>
                 )}
 
@@ -80,8 +83,8 @@ const Portfolio = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-primary font-bold"
                     >
-                        <span>شاهد المزيد على انستقرام</span>
-                        <ArrowLeft size={20} />
+                        <span>{t.portfolio.viewMore}</span>
+                        <ArrowLeft size={20} className={language === 'en' ? 'rotate-180' : ''} />
                     </a>
                 </div>
             </div>

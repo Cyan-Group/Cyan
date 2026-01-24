@@ -2,36 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Package, ShoppingBag, Coffee, Layers, Briefcase } from "lucide-react";
-
-const services = [
-    {
-        icon: <Package size={32} />,
-        title: "العلب والكرتون",
-        description: "علب مخصصة لكافة المنتجات (عطور، حلويات، هدايا) بتصاميم ومقاسات متنوعة."
-    },
-    {
-        icon: <ShoppingBag size={32} />,
-        title: "الأكياس الورقية",
-        description: "أكياس ورقية فاخرة بطباعة عالية الجودة ومقابض متينة لتعزيز علامتك التجارية."
-    },
-    {
-        icon: <Coffee size={32} />,
-        title: "الأكواب الورقية",
-        description: "أكواب للمقاهي والمطاعم بطبقة عازلة وتصاميم مميزة تناسب جميع المشروبات."
-    },
-    {
-        icon: <Layers size={32} />,
-        title: "مستلزمات التغليف",
-        description: "ورق لف، استيكرات، وشرائط مخصصة لإضفاء لمسة نهائية احترافية على منتجك."
-    },
-    {
-        icon: <Briefcase size={32} />,
-        title: "مطبوعات الشركات",
-        description: "كروت شخصية، فولدرات، دفاتر فواتير، وكل ما تحتاجه شركتك من مطبوعات ورقية."
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+    const { t } = useLanguage();
+    
+    const services = [
+        {
+            icon: <Package size={32} />,
+            title: t.services.boxes.title,
+            description: t.services.boxes.description
+        },
+        {
+            icon: <ShoppingBag size={32} />,
+            title: t.services.bags.title,
+            description: t.services.bags.description
+        },
+        {
+            icon: <Coffee size={32} />,
+            title: t.services.cups.title,
+            description: t.services.cups.description
+        },
+        {
+            icon: <Layers size={32} />,
+            title: t.services.packaging.title,
+            description: t.services.packaging.description
+        },
+        {
+            icon: <Briefcase size={32} />,
+            title: t.services.corporate.title,
+            description: t.services.corporate.description
+        }
+    ];
     return (
         <section id="services" className="py-20 bg-accent text-white">
             <div className="container mx-auto px-4">
@@ -41,7 +43,7 @@ const Services = () => {
                         whileInView={{ opacity: 1 }}
                         className="text-primary font-bold tracking-wider uppercase text-sm"
                     >
-                        خدماتنا
+                        {t.services.title}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -49,7 +51,7 @@ const Services = () => {
                         transition={{ delay: 0.1 }}
                         className="text-3xl md:text-5xl font-black mt-3"
                     >
-                        حلول متكاملة لجميع احتياجاتك
+                        {t.services.subtitle}
                     </motion.h2>
                 </div>
 
@@ -82,13 +84,15 @@ const Services = () => {
                         className="bg-primary p-8 rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-accent/10 opacity-20"></div>
-                        <h3 className="text-2xl font-bold mb-4 relative z-10">لديك طلب خاص؟</h3>
-                        <p className="mb-6 relative z-10">يمكننا تنفيذ أي فكرة تخطر ببالك. تواصل معنا لمناقشة التفاصيل.</p>
+                        <h3 className="text-2xl font-bold mb-4 relative z-10">{t.services.cta.title}</h3>
+                        <p className="mb-6 relative z-10">{t.services.cta.description}</p>
                         <a
                             href="https://wa.me/96541441200"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors relative z-10 shadow-lg"
                         >
-                            تواصل معنا
+                            {t.services.cta.button}
                         </a>
                     </motion.div>
                 </div>

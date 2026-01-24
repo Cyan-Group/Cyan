@@ -1,15 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function WhatsAppButton() {
+    const { t, language } = useLanguage();
+    
     return (
         <motion.a
             href="https://wa.me/96541441200"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="تواصل معنا عبر واتساب"
-            className="fixed bottom-6 left-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center"
+            aria-label={t.whatsapp.contactUs}
+            className={`fixed ${language === 'ar' ? 'left-6' : 'right-6'} bottom-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center`}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             initial={{ scale: 0, opacity: 0 }}

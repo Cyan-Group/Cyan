@@ -5,8 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+    const { language, setLanguage, t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,12 +23,16 @@ const Header = () => {
         };
     }, []);
 
+    const toggleLanguage = () => {
+        setLanguage(language === 'ar' ? 'en' : 'ar');
+    };
+
     const navLinks = [
-        { name: "الرئيسية", href: "#hero" },
-        { name: "من نحن", href: "#about" },
-        { name: "خدماتنا", href: "#services" },
-        { name: "شركاؤنا", href: "#partners" },
-        { name: "أعمالنا", href: "#portfolio" },
+        { name: t.nav.home, href: "#hero" },
+        { name: t.nav.about, href: "#about" },
+        { name: t.nav.services, href: "#services" },
+        { name: t.nav.partners, href: "#partners" },
+        { name: t.nav.portfolio, href: "#portfolio" },
     ];
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -85,16 +91,20 @@ const Header = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+                    <button 
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                        aria-label="Toggle language"
+                    >
                         <Globe size={20} />
-                        <span className="text-sm font-bold">EN</span>
+                        <span className="text-sm font-bold">{language === 'ar' ? 'EN' : 'AR'}</span>
                     </button>
                     <a
                         href="#contact"
                         onClick={(e) => handleNavClick(e, '#contact')}
                         className="bg-primary hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold transition-transform hover:scale-105"
                     >
-                        تواصل معنا
+                        {t.nav.contact}
                     </a>
                 </div>
 
@@ -129,16 +139,20 @@ const Header = () => {
                                 </a>
                             ))}
                             <div className="flex items-center justify-between pt-4">
-                                <button className="flex items-center gap-2 text-foreground font-bold">
+                                <button 
+                                    onClick={toggleLanguage}
+                                    className="flex items-center gap-2 text-foreground font-bold"
+                                    aria-label="Toggle language"
+                                >
                                     <Globe size={20} />
-                                    <span>EN</span>
+                                    <span>{language === 'ar' ? 'EN' : 'AR'}</span>
                                 </button>
                                 <a
                                     href="#contact"
                                     onClick={(e) => handleNavClick(e, '#contact')}
                                     className="bg-primary text-white px-6 py-2.5 rounded-full font-bold"
                                 >
-                                    تواصل معنا
+                                    {t.nav.contact}
                                 </a>
                             </div>
                         </div>

@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, CheckCircle2, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+    const { t, language } = useLanguage();
     const stats = [
-        { value: "+500", label: "عميل سعيد", icon: CheckCircle2 },
-        { value: "100%", label: "جودة مضمونة", icon: Sparkles },
-        { value: "تسليم سريع", label: "في الوقت المحدد", icon: Zap },
+        { value: "+500", label: t.hero.stats.happyClients, icon: CheckCircle2 },
+        { value: "100%", label: t.hero.stats.quality, icon: Sparkles },
+        { value: language === 'ar' ? "تسليم سريع" : "Fast Delivery", label: t.hero.stats.fastDelivery, icon: Zap },
     ];
 
     return (
@@ -36,7 +38,7 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary/10 to-blue-100/50 text-primary font-bold rounded-full text-sm border border-primary/20 shadow-sm"
                     >
                         <Sparkles size={16} className="text-primary" />
-                        #1 في عالم الطباعة والتغليف
+                        {t.hero.badge}
                     </motion.span>
 
                     {/* Main Heading */}
@@ -46,11 +48,11 @@ const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-accent leading-tight"
                     >
-                        مطبعة سيان: <br />
+                        {t.hero.title} <br />
                         <span className="bg-gradient-to-l from-primary via-sky-500 to-primary bg-clip-text text-transparent">
-                            نحول أفكارك
+                            {t.hero.titleHighlight}
                         </span>{" "}
-                        إلى واقع
+                        {t.hero.titleEnd}
                     </motion.h1>
 
                     {/* Description */}
@@ -60,7 +62,7 @@ const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
                     >
-                        متخصصون في طباعة العلب، الأكياس، والأكواب بأعلى معايير الجودة. نقدم حلول تغليف مبتكرة تناسب مشروعك التجاري وتبرز هويتك في الكويت والخليج.
+                        {t.hero.description}
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -77,8 +79,8 @@ const Hero = () => {
                             className="group relative bg-gradient-to-r from-primary to-sky-600 hover:from-sky-600 hover:to-primary text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
                         >
                             <span className="relative z-10 flex items-center justify-center gap-2">
-                                اطبع الآن عبر واتساب
-                                <ArrowLeft size={20} className="group-hover:translate-x-1 transition-transform" />
+                                {t.hero.ctaWhatsApp}
+                                <ArrowLeft size={20} className={`group-hover:translate-x-1 transition-transform ${language === 'en' ? 'rotate-180' : ''}`} />
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-sky-600 to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                         </a>
@@ -87,8 +89,8 @@ const Hero = () => {
                             className="group bg-white border-2 border-primary/30 hover:border-primary text-primary text-lg font-bold px-8 py-4 rounded-xl transition-all hover:bg-primary/5 hover:shadow-lg transform hover:-translate-y-1"
                         >
                             <span className="flex items-center justify-center gap-2">
-                                شاهد أعمالنا
-                                <ArrowLeft size={20} className="group-hover:translate-x-1 transition-transform" />
+                                {t.hero.ctaPortfolio}
+                                <ArrowLeft size={20} className={`group-hover:translate-x-1 transition-transform ${language === 'en' ? 'rotate-180' : ''}`} />
                             </span>
                         </a>
                     </motion.div>
@@ -133,7 +135,7 @@ const Hero = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="flex flex-col items-center gap-3 text-gray-400"
                 >
-                    <span className="text-xs font-medium">انتقل للأسفل</span>
+                    <span className="text-xs font-medium">{t.hero.scrollDown}</span>
                     <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
                         <motion.div
                             animate={{ y: [0, 12, 0] }}

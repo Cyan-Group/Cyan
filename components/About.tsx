@@ -2,26 +2,28 @@
 
 import { motion } from "framer-motion";
 import { Zap, ShieldCheck, Paintbrush } from "lucide-react";
-
-const features = [
-    {
-        icon: <ShieldCheck size={40} className="text-primary" />,
-        title: "جودة لا تضاهى",
-        description: "نستخدم أحدث تقنيات الطباعة العالمية لضمان دقة الألوان ومتانة الخامات."
-    },
-    {
-        icon: <Zap size={40} className="text-primary" />,
-        title: "سرعة في التنفيذ",
-        description: "نقدر وقتك. التزام تام بمواعيد التسليم مهما كان حجم الطلبية."
-    },
-    {
-        icon: <Paintbrush size={40} className="text-primary" />,
-        title: "تصاميم إبداعية",
-        description: "فريق مصممين محترف جاهز لتحويل فكرتك إلى تصميم يبهر عملائك."
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+    const { t } = useLanguage();
+    
+    const features = [
+        {
+            icon: <ShieldCheck size={40} className="text-primary" />,
+            title: t.about.features.quality.title,
+            description: t.about.features.quality.description
+        },
+        {
+            icon: <Zap size={40} className="text-primary" />,
+            title: t.about.features.speed.title,
+            description: t.about.features.speed.description
+        },
+        {
+            icon: <Paintbrush size={40} className="text-primary" />,
+            title: t.about.features.design.title,
+            description: t.about.features.design.description
+        }
+    ];
     return (
         <section id="about" className="py-20 bg-white">
             <div className="container mx-auto px-4">
@@ -33,10 +35,10 @@ const About = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl font-black text-accent mb-6">
-                            لماذا تختار <span className="text-primary">سيان</span>؟
+                            {t.about.title} <span className="text-primary">{t.about.titleHighlight}</span>{t.about.titleEnd}
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            نحن لسنا مجرد مطبعة، بل شركاء نجاحك. نخدم السوق الكويتي والخليجي منذ سنوات بخبرة عميقة في مجال التغليف والطباعة التجارية. هدفنا هو تقديم منتج يعكس احترافية مشروعك ويزيد من مبيعاتك.
+                            {t.about.description}
                         </p>
                     </motion.div>
                 </div>

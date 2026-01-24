@@ -3,6 +3,7 @@
 import { Instagram, Mail, Phone, Heart, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Custom TikTok icon
 const TikTokIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
@@ -19,6 +20,7 @@ const ThreadsIcon = ({ size = 24, className = "" }: { size?: number, className?:
 );
 
 const Footer = () => {
+    const { t, language } = useLanguage();
     // Format phone number: +96541441200 -> +965 4144 1200
     const formattedPhone = "+965 4144 1200";
     const phoneNumber = "96541441200";
@@ -37,7 +39,7 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="space-y-4 text-center md:text-right"
+                        className={`space-y-4 text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'}`}
                     >
                         <div className="relative w-40 h-12 mb-4 mx-auto md:mx-0">
                             <Image
@@ -48,7 +50,7 @@ const Footer = () => {
                             />
                         </div>
                         <p className="text-gray-300 leading-relaxed text-sm">
-                            شريككم الموثوق في عالم الطباعة والتغليف. نقدم حلولاً مبتكرة بجودة عالية وسرعة فائقة لتلبية كافة احتياجاتكم التجارية.
+                            {t.footer.description}
                         </p>
                     </motion.div>
 
@@ -58,15 +60,15 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="space-y-4 text-center md:text-right"
+                        className={`space-y-4 text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'}`}
                     >
                         <h3 className="text-xl font-bold text-white">
-                            معلومات التواصل
+                            {t.footer.contactInfo}
                         </h3>
-                        <div className="flex flex-col gap-3 text-gray-300 items-center md:items-start">
+                        <div className={`flex flex-col gap-3 text-gray-300 items-center ${language === 'ar' ? 'md:items-start' : 'md:items-start'}`}>
                             <a 
                                 href={`tel:${phoneNumber}`}
-                                aria-label="اتصل بنا"
+                                aria-label={t.footer.callUs}
                                 className="flex items-center gap-3 hover:text-primary transition-colors group"
                             >
                                 <div className="bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -76,7 +78,7 @@ const Footer = () => {
                             </a>
                             <a 
                                 href="mailto:info@cyanprintkw.com"
-                                aria-label="راسلنا عبر البريد الإلكتروني"
+                                aria-label={t.footer.emailUs}
                                 className="flex items-center gap-3 hover:text-primary transition-colors group"
                             >
                                 <div className="bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -93,17 +95,17 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="space-y-4 text-center md:text-right"
+                        className={`space-y-4 text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'}`}
                     >
-                        <h3 className="text-xl font-bold text-white">تابعونا</h3>
+                        <h3 className="text-xl font-bold text-white">{t.footer.followUs}</h3>
 
                         {/* Social Media Icons */}
-                        <div className="flex gap-3 justify-center md:justify-start flex-wrap">
+                        <div className={`flex gap-3 ${language === 'ar' ? 'justify-center md:justify-start' : 'justify-center md:justify-start'} flex-wrap`}>
                             <a
                                 href="https://instagram.com/cyan.print"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="تابعنا على انستقرام"
+                                aria-label={t.footer.followInstagram}
                                 className="bg-gray-800/50 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 p-3 rounded-xl transition-all transform hover:scale-110 hover:shadow-lg"
                             >
                                 <Instagram size={22} />
@@ -112,7 +114,7 @@ const Footer = () => {
                                 href="https://tiktok.com/@cyan.print"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="تابعنا على تيك توك"
+                                aria-label={t.footer.followTikTok}
                                 className="bg-gray-800/50 hover:bg-black p-3 rounded-xl transition-all transform hover:scale-110 hover:shadow-lg"
                             >
                                 <TikTokIcon size={22} />
@@ -121,7 +123,7 @@ const Footer = () => {
                                 href="https://threads.net/@cyan.print"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="تابعنا على ثريدز"
+                                aria-label={t.footer.followThreads}
                                 className="bg-gray-800/50 hover:bg-black p-3 rounded-xl transition-all transform hover:scale-110 hover:shadow-lg"
                             >
                                 <ThreadsIcon size={22} />
@@ -130,7 +132,7 @@ const Footer = () => {
                                 href="https://www.facebook.com/profile.php?id=100092204716363"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="تابعنا على فيسبوك"
+                                aria-label={t.footer.followFacebook}
                                 className="bg-gray-800/50 hover:bg-blue-600 p-3 rounded-xl transition-all transform hover:scale-110 hover:shadow-lg"
                             >
                                 <Facebook size={22} />
@@ -149,12 +151,12 @@ const Footer = () => {
                 >
                     <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-gray-400 text-sm">
                         <p className="flex items-center justify-center gap-1 text-center">
-                            © {new Date().getFullYear()} مطبعة سيان. جميع الحقوق محفوظة.
+                            © {new Date().getFullYear()} Cyan Printing. {t.footer.copyright}
                         </p>
                         <p className="flex items-center justify-center gap-1 text-xs">
-                            <span className="hidden sm:inline">صنع بـ</span>
+                            <span className="hidden sm:inline">{t.footer.madeWith}</span>
                             <Heart size={14} className="text-red-500 fill-red-500 animate-pulse" />
-                            <span className="hidden sm:inline">في الكويت</span>
+                            <span className="hidden sm:inline">{t.footer.inKuwait}</span>
                         </p>
                     </div>
                 </motion.div>

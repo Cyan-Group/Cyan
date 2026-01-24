@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   variable: "--font-ibm-plex-sans-arabic",
   subsets: ["arabic", "latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   display: "swap",
 });
@@ -33,15 +41,17 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSansArabic.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
+        className={`${ibmPlexSansArabic.variable} ${ibmPlexSans.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
         suppressHydrationWarning
       >
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </LanguageProvider>
       </body>
     </html>
   );
