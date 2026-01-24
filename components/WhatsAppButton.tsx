@@ -10,12 +10,25 @@ export default function WhatsAppButton() {
     const { t, language } = useLanguage();
     const [showPopup, setShowPopup] = useState(false);
     const [hasSeenPopup, setHasSeenPopup] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        // Show popup after 5 seconds if user hasn't seen it
+        // Detect if device is mobile
+        const checkMobile = () => {
+            if (typeof window !== 'undefined') {
+                const mobile = window.innerWidth < 768 || 'ontouchstart' in window;
+                setIsMobile(mobile);
+                return mobile;
+            }
+            return false;
+        };
+        const isMobileDevice = checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        // Show popup after 5 seconds if user hasn't seen it (only on desktop)
         const seen = typeof window !== 'undefined' ? localStorage.getItem('whatsapp-popup-seen') : null;
-        if (!seen) {
+        if (!seen && !isMobileDevice) {
             // Set timer to show popup after 5 seconds
             timeoutRef.current = setTimeout(() => {
                 setShowPopup(true);
@@ -23,6 +36,7 @@ export default function WhatsAppButton() {
         }
 
         return () => {
+            window.removeEventListener('resize', checkMobile);
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
             }
@@ -38,13 +52,15 @@ export default function WhatsAppButton() {
     };
 
     const handleMouseEnter = () => {
-        // Show on hover (but don't prevent the 5-second auto-show)
-        setShowPopup(true);
+        // Show on hover (desktop only, don't prevent the 5-second auto-show)
+        if (!isMobile) {
+            setShowPopup(true);
+        }
     };
 
     const handleMouseLeave = () => {
-        // Auto-hide after delay when mouse leaves (only if not manually closed)
-        if (!hasSeenPopup) {
+        // Auto-hide after delay when mouse leaves (only if not manually closed, desktop only)
+        if (!hasSeenPopup && !isMobile) {
             timeoutRef.current = setTimeout(() => {
                 setShowPopup(false);
             }, 500);
@@ -56,17 +72,18 @@ export default function WhatsAppButton() {
             className={`fixed ${language === 'ar' ? 'left-6' : 'right-6'} bottom-6 z-[100]`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            style={{ pointerEvents: 'none' }}
         >
-            {/* Popup Notification */}
+            {/* Popup Notification - Hidden on mobile */}
             <AnimatePresence mode="wait">
-                {showPopup && (
+                {showPopup && !isMobile && (
                     <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 25 }}
-                        className={`absolute ${language === 'ar' ? 'left-full ml-3' : 'right-full mr-3'} bottom-0 w-72 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl p-5 border border-gray-200`}
-                        style={{ zIndex: 1000 }}
+                        className={`absolute ${language === 'ar' ? 'left-full ml-3' : 'right-full mr-3'} bottom-0 w-72 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl p-5 border border-gray-200 pointer-events-auto`}
+                        style={{ zIndex: 999 }}
                         onMouseEnter={() => {
                             setShowPopup(true);
                             if (timeoutRef.current) {
@@ -112,13 +129,15 @@ export default function WhatsAppButton() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.whatsapp.contactUs}
-                className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center relative z-10"
+                className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center relative z-[1000] pointer-events-auto"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
-                onClick={() => {
+                onClick={(e) => {
+                    // Ensure the link works even if popup is showing
+                    e.stopPropagation();
                     sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
                 }}
             >
