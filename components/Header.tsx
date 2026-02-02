@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,6 +12,8 @@ const Header = () => {
     const { language, setLanguage, t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === "/";
 
     // Handle scroll effect for navbar background
     useEffect(() => {
@@ -31,13 +34,22 @@ const Header = () => {
         { name: t.nav.home, href: "#hero" },
         { name: t.nav.about, href: "#about" },
         { name: t.nav.services, href: "#services" },
+        { name: t.nav.subsidiaries, href: "#subsidiaries" },
         { name: t.nav.partners, href: "#partners" },
         { name: t.nav.portfolio, href: "#portfolio" },
     ];
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
         setIsOpen(false);
+        
+        // If not on homepage, navigate to homepage with hash
+        if (!isHomePage) {
+            e.preventDefault();
+            window.location.href = "/" + href;
+            return;
+        }
+        
+        e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
