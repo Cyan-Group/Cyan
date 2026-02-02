@@ -83,6 +83,7 @@ export const translations = {
         subsidiaries: {
             title: "شركاتنا",
             titleHighlight: "التابعة",
+            visitWebsite: "المزيد من المعلومات",
             cyanAdvertising: {
                 name: "سيان للدعاية والإعلان",
                 description: "متخصصون في المنتجات الترويجية، اللوحات الإعلانية، والديكور الداخلي. نقدم حلولاً إبداعية لتعزيز حضور علامتك التجارية.",
@@ -91,6 +92,88 @@ export const translations = {
                 name: "منسي لاين",
                 description: "متخصصون في طباعة حاملات البطاقات، المنتجات الأكريليك البسيطة، طباعة UV، الاستيكرات، DTF، والتيشيرتات.",
             },
+        },
+        // Cyan Advertising Page
+        cyanAdvertisingPage: {
+            heroTitle: "سيان للدعاية والإعلان",
+            heroSubtitle: "شريكك الإبداعي في عالم الدعاية والإعلان",
+            heroDescription: "نقدم حلولاً متكاملة في مجال المنتجات الترويجية، اللوحات الإعلانية، والديكور الداخلي لتعزيز حضور علامتك التجارية في السوق.",
+            aboutTitle: "من نحن",
+            aboutDescription: "سيان للدعاية والإعلان هي شركة رائدة في مجال الحلول الإعلانية والترويجية. نعمل على تحويل أفكارك إلى واقع ملموس من خلال فريق من المحترفين والمبدعين.",
+            servicesTitle: "خدماتنا",
+            services: {
+                promotional: {
+                    title: "المنتجات الترويجية",
+                    description: "هدايا دعائية، أقلام، دفاتر، ميداليات، وجميع المنتجات الترويجية المخصصة بشعار شركتك.",
+                },
+                billboards: {
+                    title: "اللوحات الإعلانية",
+                    description: "تصميم وتنفيذ اللوحات الإعلانية الداخلية والخارجية بأحدث التقنيات والخامات عالية الجودة.",
+                },
+                interior: {
+                    title: "الديكور الداخلي",
+                    description: "تصميم وتنفيذ ديكورات المحلات والمكاتب والشركات بأسلوب عصري يعكس هوية علامتك التجارية.",
+                },
+                signage: {
+                    title: "اللافتات والحروف المضيئة",
+                    description: "تصنيع وتركيب اللافتات والحروف المضيئة بمختلف الأحجام والأشكال.",
+                },
+                exhibitions: {
+                    title: "تجهيز المعارض",
+                    description: "تصميم وتجهيز أجنحة المعارض والمؤتمرات بشكل احترافي يجذب الأنظار.",
+                },
+                vehicles: {
+                    title: "تغليف المركبات",
+                    description: "طباعة وتغليف السيارات والمركبات التجارية بتصاميم إعلانية مميزة.",
+                },
+            },
+            portfolioTitle: "أعمالنا",
+            portfolioDescription: "نفتخر بتقديم أفضل الحلول الإعلانية لعملائنا",
+            contactTitle: "تواصل معنا",
+            contactDescription: "نحن هنا لمساعدتك في تحقيق أهدافك الإعلانية",
+            whatsappButton: "تواصل عبر واتساب",
+            backToHome: "العودة للرئيسية",
+        },
+        // Mansi Line Page
+        mansiLinePage: {
+            heroTitle: "منسي لاين",
+            heroSubtitle: "إبداع في الطباعة والمنتجات المخصصة",
+            heroDescription: "متخصصون في طباعة حاملات البطاقات، المنتجات الأكريليك، طباعة UV، الاستيكرات، DTF، والتيشيرتات بأعلى معايير الجودة.",
+            aboutTitle: "من نحن",
+            aboutDescription: "منسي لاين هي شركة متخصصة في الطباعة الرقمية والمنتجات المخصصة. نقدم حلولاً مبتكرة تجمع بين الجودة العالية والأسعار المنافسة.",
+            servicesTitle: "خدماتنا",
+            services: {
+                cardHolders: {
+                    title: "حاملات البطاقات",
+                    description: "طباعة حاملات البطاقات بتصاميم مخصصة وخامات متنوعة تناسب جميع الاحتياجات.",
+                },
+                acrylic: {
+                    title: "المنتجات الأكريليك",
+                    description: "تصنيع منتجات أكريليك بسيطة ومخصصة للمكاتب والمحلات التجارية.",
+                },
+                uvPrinting: {
+                    title: "طباعة UV",
+                    description: "طباعة UV على مختلف الأسطح والخامات بدقة عالية وألوان ثابتة.",
+                },
+                stickers: {
+                    title: "الاستيكرات",
+                    description: "طباعة استيكرات بجميع الأحجام والأشكال للاستخدامات التجارية والشخصية.",
+                },
+                dtf: {
+                    title: "طباعة DTF",
+                    description: "طباعة DTF عالية الجودة للأقمشة والملابس بألوان زاهية ومتانة فائقة.",
+                },
+                tshirts: {
+                    title: "التيشيرتات",
+                    description: "طباعة تيشيرتات مخصصة للشركات والفعاليات والاستخدام الشخصي.",
+                },
+            },
+            portfolioTitle: "أعمالنا",
+            portfolioDescription: "نماذج من أعمالنا المتميزة",
+            contactTitle: "تواصل معنا",
+            contactDescription: "نحن جاهزون لتنفيذ طلباتك",
+            whatsappButton: "تواصل عبر واتساب",
+            backToHome: "العودة للرئيسية",
         },
         // Partners
         partners: {
@@ -209,6 +292,7 @@ export const translations = {
         subsidiaries: {
             title: "Our",
             titleHighlight: "Subsidiaries",
+            visitWebsite: "More Info",
             cyanAdvertising: {
                 name: "Cyan Advertising",
                 description: "Specialists in promotional products, billboards, and interior decoration. We provide creative solutions to enhance your brand presence.",
@@ -217,6 +301,88 @@ export const translations = {
                 name: "Mansi Line",
                 description: "Specialists in card holder printing, simple acrylic products, UV printing, stickers, DTF, and t-shirts.",
             },
+        },
+        // Cyan Advertising Page
+        cyanAdvertisingPage: {
+            heroTitle: "Cyan Advertising",
+            heroSubtitle: "Your Creative Partner in Advertising",
+            heroDescription: "We offer comprehensive solutions in promotional products, billboards, and interior decoration to enhance your brand presence in the market.",
+            aboutTitle: "About Us",
+            aboutDescription: "Cyan Advertising is a leading company in advertising and promotional solutions. We transform your ideas into reality through a team of professionals and creatives.",
+            servicesTitle: "Our Services",
+            services: {
+                promotional: {
+                    title: "Promotional Products",
+                    description: "Promotional gifts, pens, notebooks, medals, and all customized promotional products with your company logo.",
+                },
+                billboards: {
+                    title: "Billboards",
+                    description: "Design and implementation of indoor and outdoor billboards using the latest technologies and high-quality materials.",
+                },
+                interior: {
+                    title: "Interior Decoration",
+                    description: "Design and implementation of shop, office, and company decorations in a modern style that reflects your brand identity.",
+                },
+                signage: {
+                    title: "Signage & Illuminated Letters",
+                    description: "Manufacturing and installation of signs and illuminated letters in various sizes and shapes.",
+                },
+                exhibitions: {
+                    title: "Exhibition Setup",
+                    description: "Professional design and setup of exhibition booths and conference pavilions that attract attention.",
+                },
+                vehicles: {
+                    title: "Vehicle Wrapping",
+                    description: "Printing and wrapping cars and commercial vehicles with distinctive advertising designs.",
+                },
+            },
+            portfolioTitle: "Our Work",
+            portfolioDescription: "We are proud to offer the best advertising solutions to our clients",
+            contactTitle: "Contact Us",
+            contactDescription: "We are here to help you achieve your advertising goals",
+            whatsappButton: "Contact via WhatsApp",
+            backToHome: "Back to Home",
+        },
+        // Mansi Line Page
+        mansiLinePage: {
+            heroTitle: "Mansi Line",
+            heroSubtitle: "Creativity in Printing & Custom Products",
+            heroDescription: "Specialists in card holder printing, acrylic products, UV printing, stickers, DTF, and t-shirts with the highest quality standards.",
+            aboutTitle: "About Us",
+            aboutDescription: "Mansi Line is a company specialized in digital printing and custom products. We offer innovative solutions that combine high quality with competitive prices.",
+            servicesTitle: "Our Services",
+            services: {
+                cardHolders: {
+                    title: "Card Holders",
+                    description: "Printing card holders with custom designs and various materials to suit all needs.",
+                },
+                acrylic: {
+                    title: "Acrylic Products",
+                    description: "Manufacturing simple and customized acrylic products for offices and commercial stores.",
+                },
+                uvPrinting: {
+                    title: "UV Printing",
+                    description: "UV printing on various surfaces and materials with high precision and stable colors.",
+                },
+                stickers: {
+                    title: "Stickers",
+                    description: "Printing stickers in all sizes and shapes for commercial and personal use.",
+                },
+                dtf: {
+                    title: "DTF Printing",
+                    description: "High-quality DTF printing for fabrics and clothing with vibrant colors and superior durability.",
+                },
+                tshirts: {
+                    title: "T-Shirts",
+                    description: "Custom t-shirt printing for companies, events, and personal use.",
+                },
+            },
+            portfolioTitle: "Our Work",
+            portfolioDescription: "Samples of our distinguished work",
+            contactTitle: "Contact Us",
+            contactDescription: "We are ready to fulfill your orders",
+            whatsappButton: "Contact via WhatsApp",
+            backToHome: "Back to Home",
         },
         // Partners
         partners: {

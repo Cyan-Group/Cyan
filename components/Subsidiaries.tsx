@@ -2,21 +2,26 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Subsidiaries = () => {
     const { t, language } = useLanguage();
+    const isRTL = language === "ar";
 
     const subsidiaries = [
         {
             name: t.subsidiaries.cyanAdvertising.name,
             description: t.subsidiaries.cyanAdvertising.description,
             logo: "/Cyan Advertising Logo.svg",
+            href: "/cyan-advertising",
         },
         {
             name: t.subsidiaries.mansiLine.name,
             description: t.subsidiaries.mansiLine.description,
             logo: "/Mansi Line Logo.svg",
+            href: "/mansi-line",
         },
     ];
 
@@ -59,11 +64,22 @@ const Subsidiaries = () => {
                                     {subsidiary.name}
                                 </h3>
                                 <p
-                                    className="text-gray-600 leading-relaxed"
+                                    className="text-gray-600 leading-relaxed mb-6"
                                     dir={language === "ar" ? "rtl" : "ltr"}
                                 >
                                     {subsidiary.description}
                                 </p>
+                                <Link
+                                    href={subsidiary.href}
+                                    className="inline-flex items-center gap-2 text-primary font-bold hover:text-sky-600 transition-colors group/link"
+                                >
+                                    {t.subsidiaries.visitWebsite}
+                                    {isRTL ? (
+                                        <ArrowLeft size={18} className="group-hover/link:-translate-x-1 transition-transform" />
+                                    ) : (
+                                        <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
+                                    )}
+                                </Link>
                             </div>
                         </motion.div>
                     ))}
