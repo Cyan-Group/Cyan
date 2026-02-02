@@ -31,6 +31,7 @@ const Header = () => {
         { name: t.nav.home, href: "#hero" },
         { name: t.nav.about, href: "#about" },
         { name: t.nav.services, href: "#services" },
+        { name: t.nav.subsidiaries, href: "#subsidiaries" },
         { name: t.nav.partners, href: "#partners" },
         { name: t.nav.portfolio, href: "#portfolio" },
     ];

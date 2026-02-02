@@ -7,6 +7,7 @@ export const translations = {
             home: "الرئيسية",
             about: "من نحن",
             services: "خدماتنا",
+            subsidiaries: "شركاتنا التابعة",
             partners: "شركاؤنا",
             portfolio: "أعمالنا",
             contact: "تواصل معنا",
@@ -78,6 +79,19 @@ export const translations = {
                 button: "تواصل معنا",
             },
         },
+        // Subsidiaries
+        subsidiaries: {
+            title: "شركاتنا",
+            titleHighlight: "التابعة",
+            cyanAdvertising: {
+                name: "سيان للدعاية والإعلان",
+                description: "متخصصون في المنتجات الترويجية، اللوحات الإعلانية، والديكور الداخلي. نقدم حلولاً إبداعية لتعزيز حضور علامتك التجارية.",
+            },
+            mansiLine: {
+                name: "منسي لاين",
+                description: "متخصصون في طباعة حاملات البطاقات، المنتجات الأكريليك البسيطة، طباعة UV، الاستيكرات، DTF، والتيشيرتات.",
+            },
+        },
         // Partners
         partners: {
             title: "أكثر من",
@@ -119,6 +133,7 @@ export const translations = {
             home: "Home",
             about: "About Us",
             services: "Services",
+            subsidiaries: "Subsidiaries",
             partners: "Partners",
             portfolio: "Portfolio",
             contact: "Contact Us",
@@ -188,6 +203,19 @@ export const translations = {
                 title: "Have a Special Request?",
                 description: "We can execute any idea you have in mind. Contact us to discuss the details.",
                 button: "Contact Us",
+            },
+        },
+        // Subsidiaries
+        subsidiaries: {
+            title: "Our",
+            titleHighlight: "Subsidiaries",
+            cyanAdvertising: {
+                name: "Cyan Advertising",
+                description: "Specialists in promotional products, billboards, and interior decoration. We provide creative solutions to enhance your brand presence.",
+            },
+            mansiLine: {
+                name: "Mansi Line",
+                description: "Specialists in card holder printing, simple acrylic products, UV printing, stickers, DTF, and t-shirts.",
             },
         },
         // Partners
