@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Cyan Advertising | سيان للدعاية والإعلان",
-    description: "سيان للدعاية والإعلان - متخصصون في المنتجات الترويجية، اللوحات الإعلانية، والديكور الداخلي. نقدم حلولاً إبداعية لتعزيز حضور علامتك التجارية في الكويت والخليج. | Cyan Advertising specializes in promotional products, billboards, and interior decoration.",
+    description: "شريكك الإبداعي في عالم الإعلانات - نقدم حلولاً متكاملة في مجال تنظيم المعارض وتصنيع البوثات واللوحات الإعلانية والديكور الداخلي لتعزيز حضور علامتك التجارية في السوق",
     keywords: [
         'سيان للدعاية والإعلان',
         'Cyan Advertising',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "https://cyanprintkw.com/cyan-advertising",
         siteName: "Cyan Advertising | سيان للدعاية والإعلان",
         title: "Cyan Advertising | سيان للدعاية والإعلان",
-        description: "متخصصون في المنتجات الترويجية، اللوحات الإعلانية، والديكور الداخلي. نقدم حلولاً إبداعية لتعزيز حضور علامتك التجارية.",
+        description: "شريكك الإبداعي في عالم الإعلانات - نقدم حلولاً متكاملة في مجال تنظيم المعارض وتصنيع البوثات واللوحات الإعلانية والديكور الداخلي لتعزيز حضور علامتك التجارية في السوق",
         images: [
             {
                 url: "/Cyan Advertising Logo.svg",
