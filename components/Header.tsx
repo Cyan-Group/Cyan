@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Header = () => {
     const { language, setLanguage, t } = useLanguage();
@@ -113,7 +114,10 @@ const Header = () => {
                     </button>
                     <a
                         href="#contact"
-                        onClick={(e) => handleNavClick(e, '#contact')}
+                        onClick={(e) => {
+                            sendGAEvent('event', 'contactus_click');
+                            handleNavClick(e, '#contact');
+                        }}
                         className="bg-primary hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold transition-transform hover:scale-105"
                     >
                         {t.nav.contact}
@@ -161,7 +165,10 @@ const Header = () => {
                                 </button>
                                 <a
                                     href="#contact"
-                                    onClick={(e) => handleNavClick(e, '#contact')}
+                                    onClick={(e) => {
+                                        sendGAEvent('event', 'contactus_click');
+                                        handleNavClick(e, '#contact');
+                                    }}
                                     className="bg-primary text-white px-6 py-2.5 rounded-full font-bold"
                                 >
                                     {t.nav.contact}

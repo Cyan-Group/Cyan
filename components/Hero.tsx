@@ -79,7 +79,7 @@ const Hero = () => {
                             rel="noopener noreferrer"
                             className="group relative bg-gradient-to-r from-primary to-sky-600 hover:from-sky-600 hover:to-primary text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
                             onClick={() => {
-                                sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                                sendGAEvent('event', 'whatsapp_click', { button_location: 'floating_or_page' });
                             }}
                         >
                             <span className="relative z-10 flex items-center justify-center gap-2">

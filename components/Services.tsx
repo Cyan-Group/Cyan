@@ -93,7 +93,7 @@ const Services = () => {
                             rel="noopener noreferrer"
                             className="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors relative z-10 shadow-lg"
                             onClick={() => {
-                                sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                                sendGAEvent('event', 'whatsapp_click', { button_location: 'floating_or_page' });
                             }}
                         >
                             {t.services.cta.button}

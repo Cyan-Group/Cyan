@@ -138,7 +138,7 @@ export default function WhatsAppButton() {
                 onClick={(e) => {
                     // Ensure the link works even if popup is showing
                     e.stopPropagation();
-                    sendGAEvent('event', 'click_whatsapp', { method: 'whatsapp' });
+                    sendGAEvent('event', 'whatsapp_click', { button_location: 'floating_or_page' });
                 }}
             >
                 <div className="absolute inset-0 rounded-full border border-[#25d366] opacity-50 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
