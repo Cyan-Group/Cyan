@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US"],
     url: "https://cyanprintkw.com", // Update with your actual domain
     siteName: "Cyan Printing | مطبعة سيان",
-    title: "Cyan Printing | مطبعة سيان - طباعة وتغليف في الكويت",
+    title: "Cyan Printing | مطبعة سيان",
     description: "خدمات طباعة عالية الجودة في الكويت: طباعة بوكسات، أكياس، وتغليف احترافي للشركات والأفراد. مطبعة سيان - شريكك الموثوق في الطباعة والتغليف.",
     images: [
       {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cyan Printing | مطبعة سيان - طباعة وتغليف في الكويت",
+    title: "Cyan Printing | مطبعة سيان",
     description: "خدمات طباعة عالية الجودة في الكويت: طباعة بوكسات، أكياس، وتغليف احترافي للشركات والأفراد.",
     images: ["/opengraph-image.png"],
   },
