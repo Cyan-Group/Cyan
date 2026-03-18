@@ -26,7 +26,7 @@ const ibmPlexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cyanprintkw.com'), // Update with your actual domain
   title: {
-    default: "Cyan Printing | مطبعة سيان - طباعة وتغليف في الكويت",
+    default: "Cyan Printing | مطبعة سيان",
     template: "Cyan Printing | مطبعة سيان - %s"
   },
   description: "خدمات طباعة عالية الجودة في الكويت: طباعة بوكسات، أكياس، وتغليف احترافي للشركات والأفراد. مطبعة سيان - شريكك الموثوق في الطباعة والتغليف.",
@@ -63,10 +63,10 @@ export const metadata: Metadata = {
     description: "خدمات طباعة عالية الجودة في الكويت: طباعة بوكسات، أكياس، وتغليف احترافي للشركات والأفراد. مطبعة سيان - شريكك الموثوق في الطباعة والتغليف.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Cyan Printing | مطبعة سيان",
+        alt: "Cyan Printing | مطبعة سيان - Cyan Printing Kuwait",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cyan Printing | مطبعة سيان - طباعة وتغليف في الكويت",
     description: "خدمات طباعة عالية الجودة في الكويت: طباعة بوكسات، أكياس، وتغليف احترافي للشركات والأفراد.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
