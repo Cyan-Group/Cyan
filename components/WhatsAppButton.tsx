@@ -15,9 +15,12 @@ export default function WhatsAppButton() {
 
     useEffect(() => {
         // Detect if device is mobile
+        // Use viewport width only — `'ontouchstart' in window` is true on many Windows
+        // desktops with touch/hybrid drivers, which skipped the auto-popup timer and hid
+        // the bubble via `showPopup && !isMobile`.
         const checkMobile = () => {
             if (typeof window !== 'undefined') {
-                const mobile = window.innerWidth < 768 || 'ontouchstart' in window;
+                const mobile = window.innerWidth < 768;
                 setIsMobile(mobile);
                 return mobile;
             }
