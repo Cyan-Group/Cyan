@@ -187,6 +187,17 @@ export const translations = {
             description: "نفتخر بتقديم أفضل حلول الطباعة لشركائنا",
             viewMore: "شاهد المزيد على انستقرام",
         },
+        // Arfaj Campaign
+        arfajCampaign: {
+            title: "سيان تدعم حملة",
+            titleHighlight: "زهرة العرفج",
+            description: "مبادرة لدعم الصفوف الاولى في الكويت. نموذج الزهرة على هيئة بروش متاح للاستلام مجانا للاستخدام الشخصي من فرع المطبعة في الكويت - الري - قطعة ١ - خلف فطاير شويخ الري.",
+            pickupTitle: "موقع الاستلام",
+            pickupLocation: "الكويت - الري - قطعة ١ - خلف فطاير شويخ الري",
+            pickupNote: "الاستلام من المطبعة مجانا للاستخدام الشخصي.",
+            mapButton: "افتح الموقع على جوجل ماب",
+            imageAlt: "نموذج زهرة العرفج على هيئة بروش",
+        },
         // Footer
         footer: {
             description: "شريككم الموثوق في عالم الطباعة والتغليف. نقدم حلولاً مبتكرة بجودة عالية وسرعة فائقة لتلبية كافة احتياجاتكم التجارية.",
@@ -395,6 +406,17 @@ export const translations = {
             title: "Some of Our Work",
             description: "We are proud to offer the best printing solutions to our partners",
             viewMore: "View More on Instagram",
+        },
+        // Arfaj Campaign
+        arfajCampaign: {
+            title: "Cyan Supports",
+            titleHighlight: "Arfaj Flower",
+            description: "An initiative supporting first-row students in Kuwait. The flower design in a brooch format is available for free personal pickup from our print branch in Kuwait - Al Rai - Block 1 - behind Fatayer Shuwaikh Al Rai.",
+            pickupTitle: "Pickup Location",
+            pickupLocation: "Kuwait - Al Rai - Block 1 - behind Fatayer Shuwaikh Al Rai",
+            pickupNote: "Pickup from the print branch is free for personal use.",
+            mapButton: "Open on Google Maps",
+            imageAlt: "Arfaj flower brooch model",
         },
         // Footer
         footer: {
