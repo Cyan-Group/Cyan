@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import ArfajCampaign from "@/components/ArfajCampaign";
 import Services from "@/components/Services";
 import Subsidiaries from "@/components/Subsidiaries";
 import Partners from "@/components/Partners";
@@ -10,6 +11,7 @@ export default function Home() {
     <div className="flex flex-col gap-0">
       <Hero />
       <About />
+      <ArfajCampaign />
       <Services />
       <Subsidiaries />
       <Partners />
