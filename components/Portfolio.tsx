@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -51,12 +50,8 @@ const Portfolio = () => {
                 {portfolioItems.length > 0 ? (
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         {portfolioItems.map((item, index) => (
-                            <motion.div
+                            <div
                                 key={item.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
                                 className="relative aspect-square rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all cursor-pointer bg-white"
                             >
                                 <Image
@@ -65,10 +60,11 @@ const Portfolio = () => {
                                         ? `عمل طباعة من أعمال مطبعة سيان - منتج ${item.id}` 
                                         : `Printing work by Cyan Printing - Product ${item.id}`}
                                     fill
+                                    loading="lazy"
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                                 />
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 ) : (

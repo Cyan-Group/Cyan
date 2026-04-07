@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { MapPin, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -14,12 +13,8 @@ const ArfajCampaign = () => {
         <section id="arfaj-campaign" className="py-14 md:py-20 bg-gradient-to-b from-white to-blue-50/40 border-y border-blue-100/60">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="space-y-5 md:space-y-6"
+                    <div
+                        className="space-y-5 md:space-y-6 animate-fade-in-up"
                     >
                         <span className="inline-flex items-center gap-2 text-sm font-bold bg-primary/10 text-primary px-4 py-2 rounded-full">
                             <MapPin size={16} />
@@ -38,6 +33,7 @@ const ArfajCampaign = () => {
                                     alt={t.arfajCampaign.imageAlt}
                                     width={1200}
                                     height={900}
+                                    quality={75}
                                     className="w-full h-auto object-cover"
                                     loading="lazy"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -63,14 +59,10 @@ const ArfajCampaign = () => {
                             {t.arfajCampaign.mapButton}
                             <ExternalLink size={18} />
                         </a>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative hidden lg:block"
+                    <div
+                        className="relative hidden lg:block animate-scale-in delay-100"
                     >
                         <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" aria-hidden="true" />
                         <div className="relative rounded-3xl overflow-hidden border border-blue-100 shadow-2xl bg-white">
@@ -79,12 +71,13 @@ const ArfajCampaign = () => {
                                 alt={t.arfajCampaign.imageAlt}
                                 width={1200}
                                 height={900}
+                                quality={75}
                                 className="w-full h-auto object-cover"
                                 loading="lazy"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

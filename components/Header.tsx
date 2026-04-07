@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Globe } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { sendGAEvent } from "@next/third-parties/google";
 
@@ -135,49 +134,44 @@ const Header = () => {
             </div>
 
             {/* Mobile Navigation */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
-                    >
-                        <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                    className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-gray-50"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-                            <div className="flex items-center justify-between pt-4">
-                                <button 
-                                    onClick={toggleLanguage}
-                                    className="flex items-center gap-2 text-foreground font-bold"
-                                    aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
-                                >
-                                    <Globe size={20} />
-                                    <span>{language === 'ar' ? 'EN' : 'AR'}</span>
-                                </button>
-                                <a
-                                    href="#contact"
-                                    onClick={(e) => {
-                                        sendGAEvent('event', 'contactus_click');
-                                        handleNavClick(e, '#contact');
-                                    }}
-                                    className="bg-primary text-white px-6 py-2.5 rounded-full font-bold"
-                                >
-                                    {t.nav.contact}
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <div
+                className={`md:hidden bg-white border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? "max-h-[500px] opacity-100 border-t" : "max-h-0 opacity-0 border-transparent"
+                }`}
+            >
+                <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
+                            className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-gray-50"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                    <div className="flex items-center justify-between pt-4">
+                        <button 
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-2 text-foreground font-bold"
+                            aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
+                        >
+                            <Globe size={20} />
+                            <span>{language === 'ar' ? 'EN' : 'AR'}</span>
+                        </button>
+                        <a
+                            href="#contact"
+                            onClick={(e) => {
+                                sendGAEvent('event', 'contactus_click');
+                                handleNavClick(e, '#contact');
+                            }}
+                            className="bg-primary text-white px-6 py-2.5 rounded-full font-bold"
+                        >
+                            {t.nav.contact}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </header>
     );
 };

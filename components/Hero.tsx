@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, CheckCircle2, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { sendGAEvent } from "@next/third-parties/google";
@@ -25,53 +24,36 @@ const Hero = () => {
 
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-center space-y-8"
-                >
+                <div className="text-center space-y-8 animate-fade-in-up">
                     {/* Badge */}
-                    <motion.span
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary/10 to-blue-100/50 text-primary font-bold rounded-full text-sm border border-primary/20 shadow-sm"
+                    <span
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary/10 to-blue-100/50 text-primary font-bold rounded-full text-sm border border-primary/20 shadow-sm animate-fade-in-down delay-200"
                     >
                         <Sparkles size={16} className="text-primary" />
                         {t.hero.badge}
-                    </motion.span>
+                    </span>
 
                     {/* Main Heading */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-accent leading-tight"
+                    <h1
+                        className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-accent leading-tight animate-fade-in-up delay-300"
                     >
                         {t.hero.title} <br />
                         <span className="bg-gradient-to-l from-primary via-sky-500 to-primary bg-clip-text text-transparent">
                             {t.hero.titleHighlight}
                         </span>{" "}
                         {t.hero.titleEnd}
-                    </motion.h1>
+                    </h1>
 
                     {/* Description */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
+                    <p
+                        className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto animate-fade-in-up delay-400"
                     >
                         {t.hero.description}
-                    </motion.p>
+                    </p>
 
                     {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
+                    <div
+                        className="flex flex-col sm:flex-row gap-4 justify-center pt-2 animate-fade-in-up delay-500"
                     >
                         <a
                             href="https://wa.me/96541441200"
@@ -97,22 +79,16 @@ const Hero = () => {
                                 <ArrowLeft size={20} className={`group-hover:translate-x-1 transition-transform ${language === 'en' ? 'rotate-180' : ''}`} />
                             </span>
                         </a>
-                    </motion.div>
+                    </div>
 
                     {/* Stats */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        className="pt-6 pb-12 md:pb-16 flex flex-wrap items-center justify-center gap-6 md:gap-8"
+                    <div
+                        className="pt-6 pb-12 md:pb-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 animate-fade-in-up delay-600"
                     >
                         {stats.map((stat, index) => (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                                className="flex flex-col items-center group px-2"
+                                className={`flex flex-col items-center group px-2 animate-scale-in delay-${700 + index * 100}`}
                             >
                                 <div className="flex items-center gap-2 mb-3 md:mb-4">
                                     <stat.icon size={18} className="text-primary opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
@@ -121,34 +97,27 @@ const Hero = () => {
                                     </span>
                                 </div>
                                 <span className="text-sm text-gray-500 font-medium text-center">{stat.label}</span>
-                            </motion.div>
+                            </div>
                         ))}
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </div>
 
             {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-12 md:bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
+            <div
+                className="absolute bottom-12 md:bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block animate-fade-in delay-1500"
             >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="flex flex-col items-center gap-3 text-gray-400"
+                <div
+                    className="flex flex-col items-center gap-3 text-gray-400 animate-bounce-sm"
                 >
                     <span className="text-xs font-medium">{t.hero.scrollDown}</span>
                     <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-                        <motion.div
-                            animate={{ y: [0, 12, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="w-1.5 h-1.5 bg-primary rounded-full mt-3"
+                        <div
+                            className="w-1.5 h-1.5 bg-primary rounded-full mt-3 animate-bounce-sm-inner"
                         />
                     </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </section>
     );
 };

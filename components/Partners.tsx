@@ -34,7 +34,7 @@ const Partners = () => {
                                     fill
                                     className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 96px"
-                                    priority={idx < 6}
+                                    loading="lazy"
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = "none";
                                     }}
