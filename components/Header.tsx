@@ -107,7 +107,7 @@ const Header = () => {
                     <button 
                         onClick={toggleLanguage}
                         className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                        aria-label="Toggle language"
+                        aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
                     >
                         <Globe size={20} />
                         <span className="text-sm font-bold">{language === 'ar' ? 'EN' : 'AR'}</span>
@@ -158,7 +158,7 @@ const Header = () => {
                                 <button 
                                     onClick={toggleLanguage}
                                     className="flex items-center gap-2 text-foreground font-bold"
-                                    aria-label="Toggle language"
+                                    aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
                                 >
                                     <Globe size={20} />
                                     <span>{language === 'ar' ? 'EN' : 'AR'}</span>

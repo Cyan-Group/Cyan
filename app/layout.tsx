@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic, IBM_Plex_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 import Header from "@/components/Header";
@@ -7,7 +8,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   variable: "--font-ibm-plex-sans-arabic",
@@ -92,6 +92,8 @@ export const metadata: Metadata = {
   },
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -112,8 +114,33 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
         </LanguageProvider>
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+
+                gtag('consent', 'default', {
+                  'analytics_storage': 'granted',
+                  'ad_storage': 'denied',
+                  'ad_user_data': 'denied',
+                  'ad_personalization': 'denied',
+                });
+
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  cookie_flags: 'max-age=7200;secure;samesite=strict',
+                  anonymize_ip: true,
+                  send_page_view: true,
+                });
+              `}
+            </Script>
+          </>
         )}
       </body>
     </html>

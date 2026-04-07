@@ -15,7 +15,7 @@ const Partners = () => {
     return (
         <section id="partners" className="py-16 bg-white overflow-hidden border-b border-gray-100">
             <div className="container mx-auto px-4 mb-10 text-center">
-                <h2 className="text-2xl font-bold text-gray-400">
+                <h2 className="text-2xl font-bold text-gray-600">
                     {t.partners.title} <span className="text-accent">{t.partners.titleHighlight}</span> {t.partners.titleEnd}
                 </h2>
             </div>
@@ -34,7 +34,7 @@ const Partners = () => {
                                     fill
                                     className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 96px"
-                                    priority={idx < 12}
+                                    priority={idx < 6}
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = "none";
                                     }}
