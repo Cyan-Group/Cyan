@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "cyan-printing",
+      "type": "skill-md",
+      "description": "Guides AI agents on querying Cyan Printing services, packaging specifications, custom boxes, bags, cups, and quote requests in Kuwait.",
+      "url": "https://cyanprintkw.com/.well-known/agent-skills/cyan-printing/SKILL.md",
+      "digest": "sha256:6f6445b4fa97c72d2d3e3fcba5e849319e73f1817325511c9e2cb7d794032f4d"
+    },
+    {
+      "name": "auth-md",
+      "type": "skill-md",
+      "description": "Agent authentication and registration instructions for Cyan Printing web services and discovery endpoints.",
+      "url": "https://cyanprintkw.com/.well-known/agent-skills/auth-md/SKILL.md",
+      "digest": "sha256:e0e0953a8e4d95a70cadd5f1545048b26642f2d9786f96112aaff7c5f46b1d10"
+    }
+  ]
+}

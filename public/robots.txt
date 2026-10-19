@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: GPTBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: ClaudeBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+# ARD (Agentic Resource Discovery)
+Agentmap: https://cyanprintkw.com/.well-known/ai-catalog.json
+
+Sitemap: https://cyanprintkw.com/sitemap.xml

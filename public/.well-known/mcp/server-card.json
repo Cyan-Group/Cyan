@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "serverInfo": {
+    "name": "cyan-printing-mcp",
+    "version": "1.0.1",
+    "description": "Model Context Protocol (MCP) server for Cyan Printing (مطبعة سيان) Kuwait. Exposes tools for printing catalog inquiry, custom packaging specifications, and quote generation."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://cyanprintkw.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "get_company_info",
+      "description": "Retrieve official company information, operating location in Kuwait, customer service channels, and subsidiary details for Cyan Printing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "enum": [
+              "ar",
+              "en"
+            ],
+            "description": "Language for response (Arabic or English)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_services",
+      "description": "List all printing and packaging services: Boxes & Cartons, Paper Bags, Paper Cups, Packaging Materials, and Corporate Printing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "boxes",
+              "bags",
+              "cups",
+              "packaging",
+              "corporate",
+              "all"
+            ],
+            "description": "Category of services to retrieve"
+          }
+        }
+      }
+    },
+    {
+      "name": "request_quote_info",
+      "description": "Retrieve quote requirements, dimensions guidance, material options, and the direct WhatsApp contact link for order placement.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product_type": {
+            "type": "string",
+            "description": "Product type (e.g. Perfume Box, Gift Bag, Coffee Cup, Stickers)"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Estimated order quantity"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_subsidiaries",
+      "description": "Retrieve information on Cyan Advertising (exhibitions, booths, signage) and Mansi Line (card holders, acrylic, UV printing, DTF textiles).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

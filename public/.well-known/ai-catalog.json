@@ -1,0 +1,75 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Cyan Printing Kuwait",
+    "identifier": "did:web:cyanprintkw.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:cyanprintkw.com:mcp:server-card",
+      "displayName": "Cyan Printing MCP Server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://cyanprintkw.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "find printing services in Kuwait",
+        "custom packaging boxes and paper bags quote",
+        "Cyan Printing MCP tools"
+      ]
+    },
+    {
+      "identifier": "urn:air:cyanprintkw.com:api:catalog",
+      "displayName": "Cyan Printing API Catalog",
+      "type": "application/linkset+json",
+      "url": "https://cyanprintkw.com/.well-known/api-catalog",
+      "representativeQueries": [
+        "Cyan Printing API discovery",
+        "printing services linkset RFC 9727",
+        "Cyan Print API endpoints"
+      ]
+    },
+    {
+      "identifier": "urn:air:cyanprintkw.com:api:openapi",
+      "displayName": "Cyan Printing OpenAPI Specification",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://cyanprintkw.com/api/openapi.json",
+      "representativeQueries": [
+        "Cyan Printing REST API schema",
+        "printing quote API specification",
+        "OpenAPI schema for Cyan Printing"
+      ]
+    },
+    {
+      "identifier": "urn:air:cyanprintkw.com:skills:discovery",
+      "displayName": "Agent Skills Discovery Index",
+      "type": "application/json",
+      "url": "https://cyanprintkw.com/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "agent skills for Cyan Printing",
+        "how AI agents interact with Cyan Print",
+        "packaging configuration instructions"
+      ]
+    },
+    {
+      "identifier": "urn:air:cyanprintkw.com:auth:auth-md",
+      "displayName": "Agent Registration and Auth Guide",
+      "type": "text/markdown",
+      "url": "https://cyanprintkw.com/auth.md",
+      "representativeQueries": [
+        "Cyan Printing agent registration",
+        "auth.md instructions for Cyan Print",
+        "OAuth protected resource discovery"
+      ]
+    },
+    {
+      "identifier": "urn:air:cyanprintkw.com:content:markdown-homepage",
+      "displayName": "Cyan Printing Markdown Overview",
+      "type": "text/markdown",
+      "url": "https://cyanprintkw.com/",
+      "representativeQueries": [
+        "overview of Cyan Printing Kuwait",
+        "printing boxes cups and bags specifications",
+        "Cyan Printing contact details"
+      ]
+    }
+  ]
+}

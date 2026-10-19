@@ -1,0 +1,65 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Cyan Printing API",
+    "description": "API for Cyan Printing (مطبعة سيان) Kuwait - Catalog discovery, service specifications, agent registration, and quote requirements.",
+    "version": "1.0.1",
+    "contact": {
+      "name": "Cyan Printing Support",
+      "email": "info@cyanprintkw.com",
+      "url": "https://cyanprintkw.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cyanprintkw.com",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Service Health Check",
+        "description": "Returns current status and operational health of Cyan Printing web services.",
+        "responses": {
+          "200": {
+            "description": "Service is healthy"
+          }
+        }
+      }
+    },
+    "/api/services": {
+      "get": {
+        "summary": "List Printing Services & Subsidiaries",
+        "description": "Retrieves complete catalog of packaging, carton boxes, paper bags, paper cups, and subsidiary operations.",
+        "responses": {
+          "200": {
+            "description": "Service catalog"
+          }
+        }
+      }
+    },
+    "/api/agent/register": {
+      "post": {
+        "summary": "Register AI Agent",
+        "description": "Registers an autonomous agent per the Auth.md specification.",
+        "responses": {
+          "200": {
+            "description": "Agent registered"
+          }
+        }
+      }
+    },
+    "/api/mcp": {
+      "post": {
+        "summary": "MCP Streamable Endpoint",
+        "description": "Model Context Protocol JSON-RPC / Streamable HTTP endpoint.",
+        "responses": {
+          "200": {
+            "description": "MCP Response"
+          }
+        }
+      }
+    }
+  }
+}

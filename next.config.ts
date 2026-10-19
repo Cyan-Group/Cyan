@@ -40,6 +40,40 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          {
+            key: "Link",
+            value: '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="ai-catalog", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource", </.well-known/mcp/server-card.json>; rel="service-desc", </auth.md>; rel="describedby", </.well-known/agent-skills/index.json>; rel="service-doc"',
+          },
+        ],
+      },
+      {
+        source: "/.well-known/(.*)",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "*",
+          },
+        ],
+      },
+      {
+        source: "/(.*)\\.md",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/markdown; charset=utf-8",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
         ],
       },
       {

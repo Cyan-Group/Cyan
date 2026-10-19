@@ -1,0 +1,18 @@
+# Cloudflare / Static Hosting Headers
+/_next/static/*
+  Cache-Control: public,max-age=31536000,immutable
+
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="ai-catalog", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource", </.well-known/mcp/server-card.json>; rel="service-desc", </auth.md>; rel="describedby", </.well-known/agent-skills/index.json>; rel="service-doc"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/.well-known/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Allow-Headers: *
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *

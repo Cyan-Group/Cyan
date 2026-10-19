@@ -16,12 +16,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
-    // Add more routes as your site grows
-    // {
-    //   url: `${baseUrl}/about`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.8,
-    // },
+    {
+      url: `${baseUrl}/cyan-advertising`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/mansi-line`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 }
