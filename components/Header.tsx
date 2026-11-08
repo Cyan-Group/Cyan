@@ -18,8 +18,9 @@ const Header = () => {
     // Handle scroll effect for navbar background
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            setIsScrolled(window.scrollY > 40);
         };
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -27,7 +28,7 @@ const Header = () => {
     }, []);
 
     const toggleLanguage = () => {
-        setLanguage(language === 'ar' ? 'en' : 'ar');
+        setLanguage(language === "ar" ? "en" : "ar");
     };
 
     const navLinks = [
@@ -41,14 +42,13 @@ const Header = () => {
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         setIsOpen(false);
-        
-        // If not on homepage, navigate to homepage with hash
+
         if (!isHomePage) {
             e.preventDefault();
             window.location.href = "/" + href;
             return;
         }
-        
+
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
@@ -58,43 +58,49 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/80 backdrop-blur-md shadow-md py-4" : "bg-transparent py-6"
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                isScrolled
+                    ? "bg-white/75 backdrop-blur-xl border-b border-[#009cdf]/15 shadow-[0_8px_30px_rgba(0,156,223,0.08)] py-3.5"
+                    : "bg-transparent py-6"
+            }`}
         >
-            <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div className="container mx-auto px-4 md:px-10 flex justify-between items-center">
                 {/* Logo */}
                 <Link
                     href="/"
-                    className="text-2xl font-black text-primary flex items-center gap-2"
-                    onClick={(e) => handleNavClick(e, '#hero')}
+                    className="text-2xl font-black flex items-center gap-2 transition-transform hover:scale-105"
+                    onClick={(e) => handleNavClick(e, "#hero")}
                 >
                     <Image
                         src="/Logo.svg"
                         alt="Cyan Printing Logo | مطبعة سيان - شعار الشركة"
                         width={120}
                         height={40}
-                        className="h-10 w-auto object-contain"
+                        className={`h-9 md:h-10 w-auto object-contain transition-all duration-300 ${
+                            isScrolled ? "" : "brightness-0 invert"
+                        }`}
                         priority
-                        onError={(e) => {
-                            // Fallback to text if logo doesn't exist
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            const parent = target.parentElement;
-                            if (parent && !parent.querySelector('.logo-text-fallback')) {
-                                parent.innerHTML += '<span class="logo-text-fallback text-accent text-3xl">Cyan</span><span class="logo-text-fallback">Printing</span>';
-                            }
-                        }}
                     />
                 </Link>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
+                {/* Desktop Glassmorphic Pill Navigation */}
+                <nav
+                    className={`hidden md:flex items-center gap-6 lg:gap-8 px-8 py-3 rounded-full backdrop-blur-md transition-all duration-300 ${
+                        isScrolled
+                            ? "bg-[#009cdf]/8 border border-[#009cdf]/20 shadow-sm"
+                            : "bg-white/18 border border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.05)]"
+                    }`}
+                >
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
                             onClick={(e) => handleNavClick(e, link.href)}
-                            className="text-foreground hover:text-primary font-medium transition-colors"
+                            className={`text-base font-medium transition-colors ${
+                                isScrolled
+                                    ? "text-foreground hover:text-primary"
+                                    : "text-white hover:text-[#9fffff]"
+                            }`}
                         >
                             {link.name}
                         </a>
@@ -103,21 +109,29 @@ const Header = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    <button 
+                    <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                        aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
+                        title={language === "ar" ? "Switch to English" : "التبديل إلى العربية"}
+                        className={`p-2 rounded-full transition-colors cursor-pointer ${
+                            isScrolled
+                                ? "text-primary hover:bg-[#009cdf]/10"
+                                : "text-white hover:bg-white/15"
+                        }`}
+                        aria-label={language === "ar" ? "EN — Switch to English" : "AR — التبديل إلى العربية"}
                     >
-                        <Globe size={20} />
-                        <span className="text-sm font-bold">{language === 'ar' ? 'EN' : 'AR'}</span>
+                        <Globe size={26} strokeWidth={1.75} />
                     </button>
                     <a
                         href="#contact"
                         onClick={(e) => {
-                            sendGAEvent('event', 'contactus_click');
-                            handleNavClick(e, '#contact');
+                            sendGAEvent("event", "contactus_click");
+                            handleNavClick(e, "#contact");
                         }}
-                        className="bg-primary hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-bold transition-transform hover:scale-105"
+                        className={`px-7 py-2.5 rounded-full font-bold text-base transition-all duration-300 hover:scale-105 shadow-sm ${
+                            isScrolled
+                                ? "bg-primary text-white hover:bg-[#0086bf] shadow-[#009cdf]/20"
+                                : "bg-white text-primary hover:bg-[#9fffff] shadow-black/5"
+                        }`}
                     >
                         {t.nav.contact}
                     </a>
@@ -125,47 +139,51 @@ const Header = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-foreground p-2"
+                    className={`md:hidden p-2 rounded-full transition-colors ${
+                        isScrolled ? "text-foreground" : "text-white bg-white/15 backdrop-blur-md"
+                    }`}
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle menu"
                 >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isOpen ? <X size={26} /> : <Menu size={26} />}
                 </button>
             </div>
 
-            {/* Mobile Navigation */}
+            {/* Mobile Glassmorphic Navigation */}
             <div
-                className={`md:hidden bg-white border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? "max-h-[500px] opacity-100 border-t" : "max-h-0 opacity-0 border-transparent"
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen
+                        ? "max-h-[520px] opacity-100 mt-3 mx-4 rounded-3xl bg-white/90 backdrop-blur-xl border border-[#009cdf]/20 shadow-2xl"
+                        : "max-h-0 opacity-0"
                 }`}
             >
-                <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                <div className="px-6 py-6 flex flex-col gap-3">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
                             onClick={(e) => handleNavClick(e, link.href)}
-                            className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-gray-50"
+                            className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2.5 border-b border-[#009cdf]/10"
                         >
                             {link.name}
                         </a>
                     ))}
                     <div className="flex items-center justify-between pt-4">
-                        <button 
+                        <button
                             onClick={toggleLanguage}
-                            className="flex items-center gap-2 text-foreground font-bold"
-                            aria-label={language === 'ar' ? 'EN — Switch to English' : 'AR — التبديل إلى العربية'}
+                            className="flex items-center gap-2 text-primary font-bold px-3 py-2 rounded-full bg-[#009cdf]/10"
+                            aria-label={language === "ar" ? "EN — Switch to English" : "AR — التبديل إلى العربية"}
                         >
                             <Globe size={20} />
-                            <span>{language === 'ar' ? 'EN' : 'AR'}</span>
+                            <span>{language === "ar" ? "EN" : "AR"}</span>
                         </button>
                         <a
                             href="#contact"
                             onClick={(e) => {
-                                sendGAEvent('event', 'contactus_click');
-                                handleNavClick(e, '#contact');
+                                sendGAEvent("event", "contactus_click");
+                                handleNavClick(e, "#contact");
                             }}
-                            className="bg-primary text-white px-6 py-2.5 rounded-full font-bold"
+                            className="bg-primary text-white px-7 py-2.5 rounded-full font-bold shadow-md shadow-[#009cdf]/25"
                         >
                             {t.nav.contact}
                         </a>

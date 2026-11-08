@@ -15,12 +15,12 @@ export const translations = {
         // Hero
         hero: {
             badge: "#1 في عالم الطباعة والتغليف",
-            title: "مطبعة سيان:",
+            title: "مطبعة سيان",
             titleHighlight: "نحول أفكارك",
             titleEnd: "إلى واقع",
-            description: "متخصصون في طباعة العلب، الأكياس، والأكواب بأعلى معايير الجودة. نقدم حلول تغليف مبتكرة تناسب مشروعك التجاري وتبرز هويتك في الكويت والخليج.",
-            ctaWhatsApp: "اطبع الآن عبر واتساب",
-            ctaPortfolio: "شاهد أعمالنا",
+            description: "متخصصون في الطباعة بأعلى معايير الجودة. نقدم حلول تغليف مبتكرة تناسب مشروعك التجاري وتبرز هويتك في الكويت والخليج.",
+            ctaWhatsApp: "راسلنا عالواتساب",
+            ctaPortfolio: "شوف أعمالنا",
             stats: {
                 happyClients: "عميل سعيد",
                 quality: "جودة مضمونة",
@@ -235,7 +235,7 @@ export const translations = {
         // Hero
         hero: {
             badge: "#1 in Printing & Packaging",
-            title: "Cyan Printing:",
+            title: "Cyan Printing",
             titleHighlight: "We Transform",
             titleEnd: "Your Ideas into Reality",
             description: "Specialists in printing boxes, bags, and cups with the highest quality standards. We offer innovative packaging solutions that suit your business and highlight your identity in Kuwait and the Gulf.",

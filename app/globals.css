@@ -2,10 +2,11 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #1b9cd7;
+  --foreground: #06283d;
+  --primary: #009cdf;
   --secondary: #ffffff;
-  --accent: #0f172a;
+  --complementary: #9fffff;
+  --accent: #04243a;
 }
 
 @theme inline {
@@ -13,9 +14,10 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-complementary: var(--complementary);
   --color-accent: var(--accent);
-  --font-ibm-plex-sans-arabic: var(--font-ibm-plex-sans-arabic);
-  --font-ibm-plex-sans: var(--font-ibm-plex-sans);
+  --font-thmanyah-sans: var(--font-thmanyah-sans);
+  --font-thmanyah-display: var(--font-thmanyah-display);
   --animate-scroll: scroll 60s linear infinite;
 }
 
@@ -172,12 +174,22 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-ibm-plex-sans-arabic), sans-serif;
+  font-family: var(--font-thmanyah-sans), sans-serif;
+  font-feature-settings: "salt" 1;
   overflow-x: hidden;
 }
 
 html[lang="en"] body {
-  font-family: var(--font-ibm-plex-sans), sans-serif;
+  font-family: var(--font-thmanyah-sans), sans-serif;
+  font-feature-settings: normal;
+}
+
+.font-salt {
+  font-feature-settings: "salt" 1;
+}
+
+.font-display {
+  font-family: var(--font-thmanyah-display), var(--font-thmanyah-sans), sans-serif;
 }
 
 html {

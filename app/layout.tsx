@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Arabic, IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 
@@ -9,18 +9,68 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  variable: "--font-ibm-plex-sans-arabic",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700"],
+const thmanyahSans = localFont({
+  variable: "--font-thmanyah-sans",
   display: "swap",
+  src: [
+    {
+      path: "../public/fonts/thmanyah/sans/thmanyahsans-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/sans/thmanyahsans-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/sans/thmanyahsans-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/sans/thmanyahsans-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/sans/thmanyahsans-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const thmanyahDisplay = localFont({
+  variable: "--font-thmanyah-display",
   display: "swap",
+  src: [
+    {
+      path: "../public/fonts/thmanyah/serif-display/thmanyahserifdisplay-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/serif-display/thmanyahserifdisplay-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/serif-display/thmanyahserifdisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/serif-display/thmanyahserifdisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/thmanyah/serif-display/thmanyahserifdisplay-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -109,7 +159,7 @@ export default function RootLayout({
         <link rel="service-doc" href="/.well-known/agent-skills/index.json" />
       </head>
       <body
-        className={`${ibmPlexSansArabic.variable} ${ibmPlexSans.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
+        className={`${thmanyahSans.variable} ${thmanyahDisplay.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
         suppressHydrationWarning
       >
         <StructuredData />

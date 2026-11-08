@@ -76,15 +76,29 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      {
-        source: "/(.*)\\.(js|css|woff|woff2|ttf|otf|ico|svg|png|jpg|jpeg|webp|avif)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      ...(process.env.NODE_ENV === "production"
+        ? [
+            {
+              source: "/(.*)\\.(js|css|woff|woff2|ttf|otf|ico|svg|png|jpg|jpeg|webp|avif)",
+              headers: [
+                {
+                  key: "Cache-Control",
+                  value: "public, max-age=31536000, immutable",
+                },
+              ],
+            },
+          ]
+        : [
+            {
+              source: "/(.*)\\.(js|css)",
+              headers: [
+                {
+                  key: "Cache-Control",
+                  value: "no-store, must-revalidate",
+                },
+              ],
+            },
+          ]),
     ];
   },
 };

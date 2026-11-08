@@ -26,7 +26,10 @@ const Subsidiaries = () => {
     ];
 
     return (
-        <section id="subsidiaries" className="py-20 bg-gray-50">
+        <section
+            id="subsidiaries"
+            className="py-24 bg-[linear-gradient(180deg,#f5fdff_0%,#ffffff_100%)]"
+        >
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -34,7 +37,7 @@ const Subsidiaries = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl md:text-5xl font-black text-accent"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
                     >
                         {t.subsidiaries.title}{" "}
                         <span className="text-primary">{t.subsidiaries.titleHighlight}</span>
@@ -48,8 +51,8 @@ const Subsidiaries = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group"
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className="bg-white p-8 md:p-10 rounded-3xl shadow-[0_8px_30px_rgba(0,156,223,0.06)] hover:shadow-[0_16px_44px_rgba(0,156,223,0.14)] hover:-translate-y-1 transition-all duration-300 border border-[#009cdf]/15 group"
                         >
                             <div className="flex flex-col items-center text-center">
                                 <div className="w-48 h-32 relative mb-6 group-hover:scale-105 transition-transform duration-300">
@@ -60,24 +63,30 @@ const Subsidiaries = () => {
                                         className="object-contain"
                                     />
                                 </div>
-                                <h3 className="text-xl font-bold text-accent mb-4">
+                                <h3 className="text-2xl font-bold text-foreground mb-4">
                                     {subsidiary.name}
                                 </h3>
                                 <p
-                                    className="text-gray-600 leading-relaxed mb-6"
+                                    className="text-foreground/70 text-base md:text-lg leading-relaxed mb-8"
                                     dir={language === "ar" ? "rtl" : "ltr"}
                                 >
                                     {subsidiary.description}
                                 </p>
                                 <Link
                                     href={subsidiary.href}
-                                    className="inline-flex items-center gap-2 text-primary font-bold hover:text-sky-600 transition-colors group/link"
+                                    className="inline-flex items-center gap-2 bg-[linear-gradient(90deg,#009cdf15_0%,#9fffff55_100%)] hover:bg-primary text-primary hover:text-white font-bold px-7 py-3 rounded-full border border-[#009cdf]/20 transition-all duration-300 group/link"
                                 >
                                     {t.subsidiaries.visitWebsite}
                                     {isRTL ? (
-                                        <ArrowLeft size={18} className="group-hover/link:-translate-x-1 transition-transform" />
+                                        <ArrowLeft
+                                            size={18}
+                                            className="group-hover/link:-translate-x-1 transition-transform"
+                                        />
                                     ) : (
-                                        <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
+                                        <ArrowRight
+                                            size={18}
+                                            className="group-hover/link:translate-x-1 transition-transform"
+                                        />
                                     )}
                                 </Link>
                             </div>
