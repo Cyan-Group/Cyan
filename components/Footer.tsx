@@ -38,8 +38,8 @@ const Footer = () => {
             className="bg-[linear-gradient(180deg,#009cdf_0%,#007bb5_100%)] text-white py-16 relative overflow-hidden"
         >
             {/* Ambient Complementary Glow */}
-            <div className="absolute -top-24 right-0 w-96 h-96 bg-[#9fffff]/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 left-0 w-80 h-80 bg-[#9fffff]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 right-0 w-72 md:w-96 h-72 md:h-96 bg-[#9fffff]/20 rounded-full blur-2xl md:blur-3xl pointer-events-none transform-gpu" />
+            <div className="absolute -bottom-24 left-0 w-64 md:w-80 h-64 md:h-80 bg-[#9fffff]/15 rounded-full blur-2xl md:blur-3xl pointer-events-none transform-gpu" />
 
             <div className="container mx-auto px-4 max-w-6xl relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 mb-12">

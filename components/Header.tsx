@@ -15,13 +15,20 @@ const Header = () => {
     const pathname = usePathname();
     const isHomePage = pathname === "/";
 
-    // Handle scroll effect for navbar background
+    // Handle scroll effect for navbar background with passive listener and RAF throttling
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 40);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 40);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
         handleScroll();
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -60,7 +67,7 @@ const Header = () => {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-white/75 backdrop-blur-xl border-b border-[#009cdf]/15 shadow-[0_8px_30px_rgba(0,156,223,0.08)] py-3.5"
+                    ? "bg-white/95 md:bg-white/75 backdrop-blur-sm md:backdrop-blur-xl border-b border-[#009cdf]/15 shadow-[0_8px_30px_rgba(0,156,223,0.08)] py-3.5"
                     : "bg-transparent py-6"
             }`}
         >
@@ -153,7 +160,7 @@ const Header = () => {
             <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
                     isOpen
-                        ? "max-h-[520px] opacity-100 mt-3 mx-4 rounded-3xl bg-white/90 backdrop-blur-xl border border-[#009cdf]/20 shadow-2xl"
+                        ? "max-h-[520px] opacity-100 mt-3 mx-4 rounded-3xl bg-white/95 backdrop-blur-md md:backdrop-blur-xl border border-[#009cdf]/20 shadow-2xl"
                         : "max-h-0 opacity-0"
                 }`}
             >

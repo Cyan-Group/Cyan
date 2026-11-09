@@ -29,7 +29,7 @@ const ArfajCampaign = () => {
 
                         <div className="lg:hidden relative">
                             <div
-                                className="absolute -inset-3 bg-[linear-gradient(135deg,#009cdf25_0%,#9fffff50_100%)] rounded-3xl blur-xl"
+                                className="absolute -inset-3 bg-[linear-gradient(135deg,#009cdf25_0%,#9fffff50_100%)] rounded-3xl blur-xl transform-gpu"
                                 aria-hidden="true"
                             />
                             <div className="relative rounded-3xl overflow-hidden border border-[#009cdf]/20 shadow-lg bg-white">

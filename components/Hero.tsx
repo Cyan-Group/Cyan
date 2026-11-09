@@ -12,9 +12,9 @@ const Hero = () => {
             className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[linear-gradient(180deg,#009cdf_0%,#9fffff_100%)]"
         >
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
-                <div className="text-center space-y-8 md:space-y-10 animate-fade-in-up">
+                <div className="text-center space-y-8 md:space-y-10">
                     {/* Main Heading */}
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.22] tracking-tight animate-fade-in-up delay-100">
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.22] tracking-tight animate-fade-in-up">
                         <span className="block">{t.hero.title}</span>
                         <span className="block mt-1 md:mt-2">
                             {t.hero.titleHighlight} {t.hero.titleEnd}
@@ -22,12 +22,12 @@ const Hero = () => {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-lg sm:text-xl md:text-2xl text-white/95 font-normal leading-relaxed max-w-3xl mx-auto animate-fade-in-up delay-200">
+                    <p className="text-base sm:text-xl md:text-2xl text-white/95 font-normal leading-relaxed max-w-3xl mx-auto animate-fade-in-up delay-100">
                         {t.hero.description}
                     </p>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-4 animate-fade-in-up delay-300">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-4 animate-fade-in-up delay-200">
                         <a
                             href="https://wa.me/96541441200"
                             target="_blank"

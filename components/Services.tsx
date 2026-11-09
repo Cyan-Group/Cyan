@@ -66,11 +66,11 @@ const Services = () => {
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
-                            className="bg-white/18 backdrop-blur-md border border-white/35 p-8 rounded-3xl hover:bg-white/28 transition-all duration-300 shadow-[0_8px_32px_rgba(0,80,120,0.1)] group"
+                            transition={{ duration: 0.4, delay: index * 0.06 }}
+                            className="bg-white/18 backdrop-blur-md border border-white/35 p-8 rounded-3xl hover:bg-white/28 transition-all duration-300 shadow-[0_8px_32px_rgba(0,80,120,0.1)] group transform-gpu"
                         >
                             <div className="bg-white text-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
                                 {service.icon}
@@ -86,11 +86,11 @@ const Services = () => {
 
                     {/* Call to Action Card */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: services.length * 0.08 }}
-                        className="bg-white text-foreground p-8 rounded-3xl flex flex-col justify-center items-center text-center relative overflow-hidden shadow-xl border border-white"
+                        transition={{ duration: 0.4, delay: services.length * 0.06 }}
+                        className="bg-white text-foreground p-8 rounded-3xl flex flex-col justify-center items-center text-center relative overflow-hidden shadow-xl border border-white transform-gpu"
                     >
                         <h3 className="text-2xl font-bold text-primary mb-3 relative z-10">
                             {t.services.cta.title}
